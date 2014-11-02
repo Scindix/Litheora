@@ -1,0 +1,42 @@
+#include <include.h>
+#ifndef VECTOR_H
+#define VECTOR_H
+
+
+class Vector
+{
+    public:
+        Vector(float, float, float);
+        virtual ~Vector();
+        float x, y, z;
+        float r();
+        float theta();
+        float phi();
+
+        float rho();
+
+        void r(float);
+        void theta(float);
+        void phi(float);
+
+        void rho(float);
+        
+        inline Vector& operator+(Vector, const Vector&);
+        inline Vector& operator-(Vector, const Vector&);
+        Vector& operator+=(const Vector&);
+        Vector& operator-=(const Vector&);
+        
+        inline Vector& operator*(float, const float&);
+        inline Vector& operator/(float, const float&);
+        Vector& operator*=(const float&);
+        Vector& operator/=(const float&);
+        
+        inline float& operator*(Vector, const Vector&);
+        float& operator*=(const Vector&);
+        inline Vector& operator|(Vector, const Vector&);
+        Vector& operator|=(const Vector&);
+    protected:
+    private:
+};
+
+#endif // VECTOR_H

@@ -1,0 +1,18 @@
+#ifndef PROPERTY_TYPE_H_INCLUDED
+#define PROPERTY_TYPE_H_INCLUDED
+
+typedef char PROPERTY_TYPE;
+namespace PropertyType
+{
+    const PROPERTY_TYPE VOID = 0;
+    const PROPERTY_TYPE INT = 1;
+    const PROPERTY_TYPE DOUBLE = 2;
+    const PROPERTY_TYPE STRING = 3;
+    const PROPERTY_TYPE LIST = 4;
+    const PROPERTY_TYPE BOOL = 5;
+    const PROPERTY_TYPE BITMASK = 6;
+    const PROPERTY_TYPE TABLE = 7;
+    const PROPERTY_TYPE CODE = 8;
+};
+
+#endif // PROPERTY_TYPE_H_INCLUDED

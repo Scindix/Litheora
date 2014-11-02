@@ -1,0 +1,4 @@
+<?aml version="1.0" namespace="RenderPipeline"?>
+<Framebuffer id="hblur" resolution="msaaResolution()">
+	<in></in>
+</Framebuffer>

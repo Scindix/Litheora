@@ -1,0 +1,34 @@
+arelium[]
+{
+    lastApp="org.official.space_boost:0.0.0000";
+}
+graphics[]
+{
+	windowed=true;
+	resolution={x=100; y=100; width=800; height=600; };
+}
+language[]
+{
+	LanguageBaseLocation="lang";
+	DefaultLanguage="en-us";
+	Language="en-us";
+}
+Apps[]
+{
+	system={index="app/system.0.0.0000/system.index"; dateOfInstall=1406410872; timeRan=3498; };
+	space_boost={index="app/space_boost.0.0.0000/space_boost.index"; dateOfInstall=1406410872; timeRan=11524; };
+}
+SampleSection[]
+{
+	Bla="Firefly";
+	Sub=2.322000;
+	Foo=true;
+	Bar=false;
+	Sample=19;
+	SomeKey={Bla=42; Abc="xyz"; AnotherSub={x=23.400000; y=531.850000; z=73.750000; t=34.120000; }; last=true; };
+	aTable=(auto @+Id=0,	auto FamilyName="",	auto eMail="",	auto size=0.000000,	auto Age=0,	auto isLoggedIn=false;
+	0,	"Wehrum",	"cedric@wehrumnet.de",	2.400000,	19,	true;
+	1,	"Somebody",	"some.body@gmail.de",	3.400000,	99,	false);
+}
+@include "conf/keymap.conf";
+@include "conf/shader.conf";

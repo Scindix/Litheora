@@ -1,0 +1,9 @@
+App[id="org.official.space_boost:0.0.0000";]
+{
+	name="space_boost";
+	title="Space Boost";
+	description="An open world space simulator";
+	version="0.0:0000";
+	genre="space shooter";
+	index="./space_boost.conf";
+}

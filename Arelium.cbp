@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Arelium" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="Model/;Controller/;Tools/Filesystem/;View/IO/Input/;Config/;View/;Tools/;Tools/StringHelper/;Config/Language/;Tools/Exception/;View/Shader/;Tools/Parser/;Base/;View/IO/Camera/;Tools/OtherHelper/;Config/Manager/;Tools/GL/;Apps/;Apps/space_boost/;Apps/space_boost/conf/;Apps/system/;Apps/system/conf/;Apps/space_boost/shader/;Apps/system/shader/;" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Arelium" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-Og" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Arelium" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="MemSize">
+				<Option output="bin/MemSize/Arelium" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/MemSize/" />
+				<Option object_output="obj/MemSize/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-DDEBUG" />
+			<Add directory="include" />
+			<Add directory="./" />
+			<Add directory="base_inc" />
+		</Compiler>
+		<Linker>
+			<Add option="-pthread" />
+			<Add library="GLEW" />
+			<Add library="GL" />
+			<Add library="GLU" />
+			<Add library="glut" />
+			<Add library="jpeg" />
+			<Add library="png" />
+		</Linker>
+		<Unit filename="Arelium.conf">
+			<Option virtualFolder="Config/" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/conf/keymap.conf">
+			<Option virtualFolder="Apps/space_boost/conf/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/conf/language.conf">
+			<Option virtualFolder="Apps/space_boost/conf/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/conf/shader.conf">
+			<Option virtualFolder="Apps/space_boost/conf/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/frame.conf">
+			<Option virtualFolder="Apps/space_boost/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/game.aml">
+			<Option virtualFolder="Apps/space_boost/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/main.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+			<Option virtualFolder="Apps/space_boost/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/mainMenu.aml">
+			<Option virtualFolder="Apps/space_boost/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/render.aml">
+			<Option virtualFolder="Apps/space_boost/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/scene0.aml">
+			<Option virtualFolder="Apps/space_boost/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/BackgroundMapping.fsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/BackgroundMapping.vsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/Blur.fsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/Blur.vsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/Display.fsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/Display.vsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/MergeLayer.fsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/MergeLayer.vsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/ShadowMapping.fsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/ShadowMapping.gsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/ShadowMapping.vsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/Simple.fsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/Simple.gsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/Simple.tcsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/Simple.tesh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/shaders/Simple.vsh">
+			<Option virtualFolder="Apps/space_boost/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/space_boost.conf">
+			<Option virtualFolder="Apps/space_boost/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/space_boost.0.0.0000/space_boost.index">
+			<Option virtualFolder="Apps/space_boost/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/conf/keymap.conf">
+			<Option virtualFolder="Apps/system/conf/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/conf/language.conf">
+			<Option virtualFolder="Apps/system/conf/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/conf/shader.conf">
+			<Option virtualFolder="Apps/system/conf/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/BackgroundMapping.fsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/BackgroundMapping.vsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/Blur.fsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/Blur.vsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/Display.fsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/Display.vsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/MergeLayer.fsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/MergeLayer.vsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/ShadowMapping.fsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/ShadowMapping.gsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/ShadowMapping.vsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/Simple.fsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/Simple.gsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/Simple.tcsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/Simple.tesh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/shaders/Simple.vsh">
+			<Option virtualFolder="Apps/system/shader/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/system.conf">
+			<Option virtualFolder="Apps/system/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="app/system.0.0.0000/system.index">
+			<Option virtualFolder="Apps/system/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="base_inc/BMP.cpp">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/BMP.h">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/Config.cpp">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="base_inc/Config.h">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="base_inc/ConfigColumns.h">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="base_inc/ConfigSection.cpp">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="base_inc/ConfigSection.h">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="base_inc/Console.cpp">
+			<Option virtualFolder="Tools/StringHelper/" />
+		</Unit>
+		<Unit filename="base_inc/Console.h">
+			<Option virtualFolder="Tools/StringHelper/" />
+		</Unit>
+		<Unit filename="base_inc/Exception.cpp">
+			<Option virtualFolder="Tools/Exception/" />
+		</Unit>
+		<Unit filename="base_inc/Exception.h">
+			<Option virtualFolder="Tools/Exception/" />
+		</Unit>
+		<Unit filename="base_inc/ExpHelper.cpp">
+			<Option virtualFolder="Tools/StringHelper/" />
+		</Unit>
+		<Unit filename="base_inc/ExpHelper.h">
+			<Option virtualFolder="Tools/StringHelper/" />
+		</Unit>
+		<Unit filename="base_inc/File.h">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/Folder.cpp">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/Folder.h">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/JPG.cpp">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/JPG.h">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/Language.cpp">
+			<Option virtualFolder="Tools/StringHelper/" />
+		</Unit>
+		<Unit filename="base_inc/Language.h">
+			<Option virtualFolder="Tools/StringHelper/" />
+		</Unit>
+		<Unit filename="base_inc/PNG.cpp">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/PNG.h">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/PROPERTY_TYPE.h">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="base_inc/Property.cpp">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="base_inc/Property.h">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="base_inc/StringHelper.cpp">
+			<Option virtualFolder="Tools/StringHelper/" />
+		</Unit>
+		<Unit filename="base_inc/StringHelper.h">
+			<Option virtualFolder="Tools/StringHelper/" />
+		</Unit>
+		<Unit filename="base_inc/Text.cpp">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/Text.h">
+			<Option virtualFolder="Tools/Filesystem/" />
+		</Unit>
+		<Unit filename="base_inc/debug.h">
+			<Option virtualFolder="Tools/" />
+		</Unit>
+		<Unit filename="base_inc/error.h">
+			<Option virtualFolder="Tools/Exception/" />
+		</Unit>
+		<Unit filename="base_inc/include.h">
+			<Option virtualFolder="Tools/" />
+		</Unit>
+		<Unit filename="base_inc/platform.h">
+			<Option virtualFolder="Tools/" />
+		</Unit>
+		<Unit filename="base_inc/preprocessor.h">
+			<Option virtualFolder="Tools/" />
+		</Unit>
+		<Unit filename="base_inc/release.h">
+			<Option virtualFolder="Tools/" />
+		</Unit>
+		<Unit filename="base_inc/variables.h">
+			<Option virtualFolder="Tools/" />
+		</Unit>
+		<Unit filename="conf/keymap.conf">
+			<Option virtualFolder="Config/" />
+		</Unit>
+		<Unit filename="conf/language.conf">
+			<Option virtualFolder="Config/" />
+		</Unit>
+		<Unit filename="conf/shader.conf">
+			<Option virtualFolder="Config/" />
+		</Unit>
+		<Unit filename="include/App.h">
+			<Option virtualFolder="Controller/" />
+		</Unit>
+		<Unit filename="include/AppController.h">
+			<Option virtualFolder="Controller/" />
+		</Unit>
+		<Unit filename="include/ArrayInit.h">
+			<Option virtualFolder="Tools/OtherHelper/" />
+		</Unit>
+		<Unit filename="include/BackgroundMap.h">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="include/Buffer.h">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="include/Camera.h">
+			<Option virtualFolder="View/IO/Camera/" />
+		</Unit>
+		<Unit filename="include/CodePackage.h">
+			<Option virtualFolder="Tools/Parser/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/Color.h">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="include/Commands.h">
+			<Option virtualFolder="Base/" />
+		</Unit>
+		<Unit filename="include/ConfigColumn.h">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="include/ConfigColumnItem.h">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="include/ConfigColumnTemplate.h">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="include/ConfigExplorer.h">
+			<Option virtualFolder="Config/Manager/" />
+		</Unit>
+		<Unit filename="include/ConfigTable.h">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="include/DisplayMesh.h">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="include/FirstPersonCamera.h">
+			<Option virtualFolder="View/IO/Camera/" />
+		</Unit>
+		<Unit filename="include/FrameBuffer.h">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="include/GLH.h">
+			<Option virtualFolder="Tools/GL/" />
+		</Unit>
+		<Unit filename="include/Keyboard.h">
+			<Option virtualFolder="View/IO/Input/" />
+		</Unit>
+		<Unit filename="include/Light.h">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="include/Main.h">
+			<Option virtualFolder="Base/" />
+		</Unit>
+		<Unit filename="include/Matrix.h">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="include/Mesh.h">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="include/MirrorCube.h">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="include/Mouse.h">
+			<Option virtualFolder="View/IO/Input/" />
+		</Unit>
+		<Unit filename="include/ParserHelper.h">
+			<Option virtualFolder="Tools/StringHelper/" />
+		</Unit>
+		<Unit filename="include/Render.h">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="include/Shader.h">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="include/SimpleCube.h">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="include/Texture.h">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="include/ThreadHelper.h">
+			<Option virtualFolder="Tools/OtherHelper/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/Vector.h">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="include/WavefrontModel.h">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="include/gl_inc_hs.h">
+			<Option virtualFolder="Tools/GL/" />
+		</Unit>
+		<Unit filename="lang/de-de.lang">
+			<Option virtualFolder="Config/Language/" />
+		</Unit>
+		<Unit filename="lang/en-us.lang">
+			<Option virtualFolder="Config/Language/" />
+		</Unit>
+		<Unit filename="main.cpp">
+			<Option virtualFolder="Base/" />
+		</Unit>
+		<Unit filename="shaders/BackgroundMapping.fsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/BackgroundMapping.vsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/Blur.fsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/Blur.vsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/Display.fsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/Display.vsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/MergeLayer.fsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/MergeLayer.vsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/ShadowMapping.fsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/ShadowMapping.gsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/ShadowMapping.vsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/Simple.fsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/Simple.gsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/Simple.tcsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/Simple.tesh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="shaders/Simple.vsh">
+			<Option virtualFolder="View/Shader/" />
+		</Unit>
+		<Unit filename="src/App.cpp">
+			<Option virtualFolder="Controller/" />
+		</Unit>
+		<Unit filename="src/AppController.cpp">
+			<Option virtualFolder="Controller/" />
+		</Unit>
+		<Unit filename="src/ArrayInit.cpp">
+			<Option virtualFolder="Tools/OtherHelper/" />
+		</Unit>
+		<Unit filename="src/BackgroundMap.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="src/Buffer.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="src/Camera.cpp">
+			<Option virtualFolder="View/IO/Camera/" />
+		</Unit>
+		<Unit filename="src/CodePackage.cpp">
+			<Option virtualFolder="Tools/Parser/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/Color.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="src/Commands.cpp">
+			<Option virtualFolder="Base/" />
+		</Unit>
+		<Unit filename="src/ConfigColumn.cpp">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="src/ConfigColumnItem.cpp">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="src/ConfigColumnTemplate.cpp">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="src/ConfigExplorer.cpp">
+			<Option virtualFolder="Config/Manager/" />
+		</Unit>
+		<Unit filename="src/ConfigTable.cpp">
+			<Option virtualFolder="Tools/Parser/" />
+		</Unit>
+		<Unit filename="src/DisplayMesh.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="src/FirstPersonCamera.cpp">
+			<Option virtualFolder="View/IO/Camera/" />
+		</Unit>
+		<Unit filename="src/FrameBuffer.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="src/GLH.cpp">
+			<Option virtualFolder="Tools/GL/" />
+		</Unit>
+		<Unit filename="src/Keyboard.cpp">
+			<Option virtualFolder="View/IO/Input/" />
+		</Unit>
+		<Unit filename="src/Light.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="src/Main.cpp">
+			<Option virtualFolder="Base/" />
+		</Unit>
+		<Unit filename="src/Matrix.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="src/Mesh.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="src/MirrorCube.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="src/Mouse.cpp">
+			<Option virtualFolder="View/IO/Input/" />
+		</Unit>
+		<Unit filename="src/ParserHelper.cpp">
+			<Option virtualFolder="Tools/StringHelper/" />
+		</Unit>
+		<Unit filename="src/Render.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="src/Shader.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="src/SimpleCube.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="src/Texture.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="src/ThreadHelper.cpp">
+			<Option virtualFolder="Tools/OtherHelper/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/Vector.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="src/WavefrontModel.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<lib_finder disable_auto="1" />
+			<debugger />
+			<DoxyBlocks>
+				<comment_style block="0" line="2" />
+				<doxyfile_project />
+				<doxyfile_build extract_all="1" />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot class_diagrams="1" />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

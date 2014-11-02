@@ -1,0 +1,7 @@
+<?aml version="1.0" namespace="GUI"?>
+<Vbox id="mainMenu">
+	<Button id="startGame">Start</Button>
+	<Button id="exitGame">Exit</Button>
+</Vbox>
+<![CDATA[  ]]>
+<!-- lodlkd,kaqöd,-->      &quot;ddddddddddddddddddddddddddddddddddddddddd

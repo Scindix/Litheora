@@ -1,0 +1,67 @@
+#include "Game.h"
+
+Game::Game()
+{
+    int argc = 1;
+    char* argv = (char*)App.path.c_str();
+    glutInit(&argc, &argv);
+	render = *new Render();
+    keyboard = *new Keyboard();
+    mouse = *new Mouse();
+}
+
+Game::~Game()
+{
+    //dtor
+}
+
+void Game::start()
+{
+#ifdef DEBUG_SERVICE_START
+    std::cout << ConsoleBlocks::Debug << L("StartGame") << "\n";
+#endif // DEBUG_SERVICE_START
+	// init GLUT and create window
+
+	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
+	glutInitWindowPosition(100,100);
+	glutInitWindowSize(800,600);
+	glutCreateWindow(App.name.c_str());
+
+    registerCallbacks();
+	// register callbacks
+	//init();
+
+	// enter GLUT event processing cycle
+#ifdef DEBUG_SERVICE_START
+    std::cout << ConsoleBlocks::Debug << L("GameRunning") << "\n";
+#endif // DEBUG_SERVICE_START
+	glutMainLoop();
+}
+
+void Game::registerCallbacks()
+{
+    GLUT::init();
+    	// register callbacks
+    GLUT::onIdle = GLUT::onReDisplay = [this]{render.draw();};
+    
+    GLUT::onReshape = [this](int w, int h){render.camera.reshape(w, h);};
+    
+    GLUT::onKeyDown = [this](int key, int x, int y){keyboard.pressKey(key, x, y);};
+    GLUT::onKeyUp = [this](int key, int x, int y){keyboard.releaseKey(key, x, y);};
+    GLUT::onKeyPress = [this](unsigned char key, int x, int y){keyboard.processNormalKeys(key, x, y);};
+    
+    GLUT::onMouseMove = [this]{mouse.button(button, state, x, y));};
+	/**glutDisplayFunc([this]{render.draw();});
+	glutReshapeFunc(render.camera.reshape);
+	glutIdleFunc(render.draw);
+
+	glutIgnoreKeyRepeat(1);
+	glutKeyboardFunc(keyboard.processNormalKeys);
+	glutSpecialFunc(keyboard.pressKey);
+	glutSpecialUpFunc(keyboard.releaseKey);
+	glutMouseFunc(mouse.button);
+	glutMotionFunc(mouse.move);**/
+}
+
+
+

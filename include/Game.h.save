@@ -1,0 +1,30 @@
+#include <include.h>
+#include <gl_inc_hs.h>
+#include <Camera.h>
+#include <Render.h>
+#include <Keyboard.h>
+#include <Mouse.h>
+
+#ifndef GAME_H
+#define GAME_H
+
+
+
+class Game
+{
+    public:
+        Game();
+        virtual ~Game();
+        void start();
+        void setGame(Game*);
+    protected:
+    private:
+        void registerCallbacks();
+        Render render;
+        Keyboard keyboard;
+        Mouse mouse;
+        static Game* activeGame;
+        static void call_draw();
+};
+
+#endif // GAME_H

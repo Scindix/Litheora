@@ -1,0 +1,35 @@
+#include <include.h>
+#include <gl_inc_hs.h>
+
+#ifndef KEYBOARD_H
+#define KEYBOARD_H
+
+struct KeyAction
+{
+    std::string mapID;
+    std::function<void(int, int)> run;
+    unsigned char types;
+};
+
+struct KeyDefine
+{
+    std::string keyString;
+    unsigned int keyID;
+};
+
+class Keyboard
+{
+    public:
+        Keyboard();
+        virtual ~Keyboard();
+        void pressKey(int, int, int);
+        void releaseKey(int, int, int);
+        void processNormalKeys(unsigned char, int, int);
+    protected:
+    private:
+        char* gameModeString;
+        std::vector<KeyAction> actionTable;
+        std::vector<KeyDefine> keyDefineTable;
+};
+
+#endif // KEYBOARD_H

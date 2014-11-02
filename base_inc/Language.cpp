@@ -1,0 +1,166 @@
+#include "Language.h"
+
+Config* Language::languages;
+ConfigSection* Language::language = nullptr;
+ConfigSection* Language::standardLanguage = nullptr;
+
+Language::Language()
+{
+    //ctor
+}
+
+Language::~Language()
+{
+    //dtor
+}
+
+std::string Language::match(std::string translate, ConfigSection* lang, std::vector<std::string> args)
+{
+    if(lang == nullptr)
+        throw(Error::LanguageUninitialized);
+    for(unsigned int k = 0; k < lang->prop.size(); k++)
+    {
+        if(lang->prop[k].name() == translate)
+        {
+            std::string out(lang->prop[k].valueSTRING());
+            for(unsigned int i = 0; i < args.size(); i++)
+            {
+                StringHelper::replaceAll(out, S(S("$")+std::to_string(i+1)), args[i]);
+            }
+            return out;
+        }
+    }
+    throw(Error::LanguageNoTranslation);
+}
+
+std::string Language::match(std::string translate, ConfigSection* lang)
+{
+    return match(translate, lang, *new std::vector<std::string>);
+}
+
+std::string Language::multiMatch(std::string translate)
+{
+    return multiMatch(translate, *new std::vector<std::string>);
+}
+
+std::string Language::multiMatch(std::string translate, std::vector<std::string> args)
+{
+    std::string out("");
+    try
+    {
+        out = match(translate, language, args);
+        return out;
+    }
+    catch(Exception e)
+    {
+        if(e == Error::LanguageNoTranslation && language != standardLanguage)
+        {
+            try
+            {
+                out = match(translate, standardLanguage, args);
+                return out;
+            }
+            catch(Exception e)
+            {
+                if(PRINT_TRANSLATION_FAILURES && e == Error::LanguageUninitialized)
+                    std::cout << e(S("Cannot translate '") + translate + S("'.\n"));
+            }
+            catch(std::exception& e)
+            {
+                std::cout << Exception::errorString(e, "std::string Language::multiMatch(std::string translate)");
+            }
+            std::string argsOut("");
+            for(size_t i = 0; i < args.size(); i++)
+            {
+                argsOut += S("$")+std::to_string(i)+S("='")+args[i]+S("'; ");
+            }
+            return translate + ((argsOut=="")?"": S(" (") + argsOut + S(")"));
+        }
+        if(PRINT_TRANSLATION_FAILURES && (e == Error::LanguageUninitialized))
+            std::cout << e(S("Cannot translate '") + translate + S("'."));
+    }
+    catch(std::exception& e)
+    {
+        std::cout << Exception::errorString(e, "std::string Language::multiMatch(std::string translate)");
+    }
+    std::string argsOut("");
+    for(size_t i = 0; i < args.size(); i++)
+    {
+        argsOut += S("$")+std::to_string(i)+S("='")+args[i]+S("'; ");
+    }
+    return translate + (args.size()!=0?(S(" (") + argsOut + S(")")):S(""));
+}
+
+void Language::init(File::Folder* base, Config* con)
+{
+    languages = con;
+    try
+    {
+        std::string resultPath = base->path;
+
+        std::vector<std::string> languageFiles = base->files();
+        for(size_t i = 0; i < languageFiles.size(); i++)
+        {
+            if(StringHelper::explode(languageFiles[i], '.').back() == S("lang"))
+            {
+#ifdef DEBUG_LANGUAGES_FOUND
+                std::string langName = languageFiles[i].substr(0, languageFiles[i].rfind("."));
+                std::cout << ConsoleBlocks::Debug << "Language found: " << langName << "\n";
+#endif // DEBUG
+                File::Text file(S(resultPath + PATH_SLASH + languageFiles[i]));
+                std::string text;
+                file >> text;
+                languages->parse(text);
+            }
+        }
+        std::string defLang = (Config::root%S("language")/S("DefaultLanguage")).valueSTRING();
+        std::string setLang = (Config::root%S("language")/S("Language")).valueSTRING();
+        standardLanguage = &(languages->at(S("Language"), {"Code", defLang}));
+        language = &(languages->at(S("Language"), {"Code", setLang}));
+#ifdef DEBUG_PARSE_LANGUAGE
+        for(unsigned int j = 0; j < languages->sections.size(); j++)
+        {
+            std::cout << ConsoleBlocks::Debug << "Section: '" << languages->sections[j].name << "'\n";
+            for(unsigned int k = 0; k < languages->sections[j].param.size(); k++)
+            {
+                std::cout << ConsoleBlocks::Debug << "    Param: '" << languages->sections[j].param[k].name() << "'\n";
+                char c = languages->sections[j].param[k].type();
+                std::cout << "\t\tType: '" << Property::getStatusString(c) << "'\n";
+                switch(c)
+                {
+                case PropertyType::STRING:
+                    std::cout << "\t\tValue: '" << languages->sections[j].param[k].valueSTRING() << "'\n";
+                    break;
+                default:
+                    std::cout << "\t\tValue: <Couldn't Parse value>\n";
+                }
+            }
+            std::cout << "\n";
+            for(unsigned int k = 0; k < languages->sections[j].prop.size(); k++)
+            {
+                std::cout << ConsoleBlocks::Debug << "    Prop: '" << languages->sections[j].prop[k].name() << "'\n";
+                char c = languages->sections[j].prop[k].type();
+                std::cout << "\t\tType: '" << Property::getStatusString(c) << "'\n";
+                switch(c)
+                {
+                case PropertyType::STRING:
+                    std::cout << "\t\tValue: '" << languages->sections[j].prop[k].valueSTRING() << "'\n";
+                    break;
+                default:
+                    std::cout << "\t\tValue: <Couldn't Parse value>\n";
+                }
+            }
+        }
+#endif // DEBUG_PARSE_LANGUAGE
+    }
+    catch(Exception e)
+    {
+        std::cout << e(S("While opening '") + Console::FileAdress(APP.executionPath) + S("'"));
+        return;
+    }
+    catch(std::exception& e)
+    {
+        std::cout << Exception::errorString(e, "void Language::init(std::string base, std::string stdLang, std::string setLang)");
+        return;
+    }
+}

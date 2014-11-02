@@ -1,0 +1,5 @@
+#include "Text.h"
+#include "PNG.h"
+///#include "JPG.h"
+#include "BMP.h"
+#include "Folder.h"

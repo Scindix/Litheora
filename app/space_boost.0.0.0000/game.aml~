@@ -1,0 +1,7 @@
+<?aml version="1.0" namespace="GUI"?>
+<Layered id="mainFrame">
+	<Canvas context="frame"></Canvas>
+	<Border>
+		<>
+	</Border>
+</Layered>

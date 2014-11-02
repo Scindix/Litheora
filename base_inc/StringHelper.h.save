@@ -1,0 +1,46 @@
+#ifndef STRINGHELPER_H
+#define STRINGHELPER_H
+
+#include <sstream>
+#include <utility>
+#include <vector>
+#include <error.h>
+
+#define S__(s) (*new std::string(s))
+
+namespace CodeSnippets
+{
+    static std::vector<std::string> Parentheses = {"(", ")"};
+    static std::vector<std::string> Braces = {"{", "}"};
+    static std::vector<std::string> Chevrons = {"<", ">"};
+    static std::vector<std::string> Brackets = {"[", "]"};
+    static std::vector<std::string> Quotes = {"\"", "\""};
+    static std::vector<std::string> SingleQuotes = {"'", "'"};
+
+    static std::string Comma = ",";
+    static std::string Colon = ":";
+    static std::string SemiColon = ";";
+    static std::string Period = ".";
+}
+
+class StringHelper
+{
+    public:
+        StringHelper();
+        virtual ~StringHelper();
+        static std::vector<std::string> explode(std::string const & s, char delim);
+        static bool replace(std::string&, const std::string, const std::string);
+        static int replaceAll(std::string&, const std::string, const std::string);
+        static std::string replaceR(std::string, const std::string, const std::string);
+        static std::string replaceAllR(std::string, const std::string, const std::string);
+        static unsigned int to_int_strict(std::string);
+        static std::string blank(size_t);
+        static std::string tab(size_t);
+        static std::string nLine(size_t);
+        static std::string gen(size_t, std::string);
+        //static std::vector<std::string> parseFunction(std::string, std::vector<std::string>, std::string);
+    protected:
+    private:
+};
+
+#endif // STRINGHELPER_H

@@ -1,0 +1,20 @@
+space_boost[]
+{
+	name="system";
+	title="Arelium";
+	description="An app store, app starter (home screen), mutitasking handler and system management app";
+	version="0.0:0000";
+	genre="system";
+	start="./space_boost.css";
+}
+graphics[]
+{
+	windowed=true;
+	resolution={x=100; y=100; width=800; height=600; };
+}
+language[]
+{
+	LanguageBaseLocation="lang";
+	DefaultLanguage="en-us";
+}
+@include "./conf/keymap.conf";

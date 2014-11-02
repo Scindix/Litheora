@@ -1,0 +1,10 @@
+#ifndef GL_INC_HS_INCLUDED
+#define GL_INC_HS_INCLUDED
+
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
+
+#endif // GL_INC_HS_INCLUDED

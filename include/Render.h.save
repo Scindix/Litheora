@@ -1,0 +1,19 @@
+#include <include.h>
+#include <gl_inc_hs.h>
+#include <Camera.h>
+
+#ifndef RENDER_H
+#define RENDER_H
+
+
+class Render
+{
+    public:
+        Camera camera;
+        Render();
+        virtual ~Render();
+    protected:
+    private:
+};
+
+#endif // RENDER_H

@@ -1,0 +1,38 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+//#include <include.h>
+#include <ConfigSection.h>
+#include "StringHelper.h"
+#include "Text.h"
+#include "Folder.h"
+#include "preprocessor.h"
+#include "StringHelper.h"
+
+class Config
+{
+    public:
+        Config();
+        Config(std::string);
+        void parse(std::string);
+        ConfigSection& at(std::string, std::vector<std::string>);
+        ConfigSection& at(std::string);
+        Config& atSub(std::string);
+        void save();
+        static void init(std::string);
+
+        Config& operator= (std::string);
+        ConfigSection& operator% (std::string);
+        Config& operator/ (std::string);
+        virtual ~Config();
+        std::string fname;
+        std::vector<ConfigSection> sections;
+        std::vector<Config> subSections;
+        static Config root;
+        //static std::vector<Config> files;
+        std::string id;
+    protected:
+    private:
+};
+
+#endif // CONFIG_H

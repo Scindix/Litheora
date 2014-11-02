@@ -1,0 +1,186 @@
+QtiPlot 0.9.8 project file
+<scripting-lang>	muParser
+<windows>	2
+<table>
+Tabelle1	30	2	02.07.14 18:38
+geometry	0	0	445	464	
+header	1[X]	2[Y]
+ColWidth	100	227	
+<com>
+</com>
+ColType	0;0/13	0;0/13
+ReadOnlyColumn	0	0
+HiddenColumn	0	0
+Comments			
+WindowLabel		2
+<data>
+0	-7	0.004429912105511
+1	-6	0.00895781211794
+2	-5	0.0215963866053
+3	-4	0.0443683338718
+4	-3	0.0776744219933
+5	-2	0.115876621105
+6	-1	0.147308056121
+7	0	0.159576912161
+8	1	0.147308056121
+9	2	0.115876621105
+10	3	0.0776744219933
+11	4	0.0443683338718
+12	5	0.0215963866053
+13	6	0.00895781211794
+14	7	0.004429912105511
+</data>
+</table>
+<multiLayer>
+Grafik1	1	1	02.07.14 18:42
+geometry	71	-59	555	456	active
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	2	14	537	393
+<PageGeometry>0.00365631	0.0343137	0.981718	0.963235</PageGeometry>
+PlotTitle	Titel	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	%(?X)	%(?Y)		%(?Y)	
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Ubuntu	13	75	0	0	0
+ScaleFont0	Ubuntu	11	75	0	0	0
+ScaleFont1	Ubuntu	11	75	0	0	0
+ScaleFont2	Ubuntu	11	75	0	0	0
+ScaleFont3	Ubuntu	11	75	0	0	0
+AxisFont0	Ubuntu	11	50	0	0	0
+AxisFont1	Ubuntu	11	50	0	0	0
+AxisFont2	Ubuntu	11	50	0	0	0
+AxisFont3	Ubuntu	11	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#3c3c3c	#3c3c3c	#3c3c3c	#3c3c3c
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	Tabelle1_1	Tabelle1_2	0	1	#000000	0	1	7	0	#000000	#000000	0	#000000	14	1	2	0	0	29	1
+<Function>
+<Type>0</Type>
+<Title>PolynomFit2</Title>
+<Expression>a0+a1*x+a2*x^2+a3*x^3+a4*x^4+a5*x^5+a6*x^6</Expression>
+<Variable>x</Variable>
+<Range>-7	7</Range>
+<Points>100</Points>
+<Constant>a0	0.157354910052405</Constant>
+<Constant>a1	3.06834073685459e-17</Constant>
+<Constant>a2	-0.0110026314183387</Constant>
+<Constant>a3	-1.54332685181558e-19</Constant>
+<Constant>a4	0.000281210828649593</Constant>
+<Constant>a5	-8.07638718173037e-21</Constant>
+<Constant>a6	-2.46042236549488e-06</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#ff0000</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	0	0.18	0	10	5	0	0
+scale	1	0	0.18	0	10	5	0	0
+scale	2	-8	8	0	9	5	0	0
+scale	3	-8	8	0	9	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1
+MinorTicks	1	1	1	1
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>-7.5858823529412</x>
+<y>0.2</y>
+<right>27.1623529411765</right>
+<bottom>0.129765886287625</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+Y=0,149302618674422+9,92306093391135e-18X-0,00780542439175836X<sup>2</sup>-5,40854201420995e-19X<sup>3</sup>+0,000101152646447468X<sup>4</sup>
+\l(2)%(2)
+Y=0,157354910052405+3,06834073685459e-17X-0,0110026314183387X<sup>2</sup>-1,54332685181558e-19X<sup>3</sup>+0,000281210828649593X<sup>4</sup>-8,07638718173037e-21X<sup>5</sup>-2,46042236549488e-06X<sup>6</sup>
+</Text>
+<Font>Ubuntu	11	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<open>1</open>
+<log>
+[02.07.14 18:44	Diagramm: ''Grafik1'']
+Polynom-Fit von Datensatz: Tabelle1_2, unter Verwendung der Funktion: a0+a1*x+a2*x^2+a3*x^3+a4*x^4
+Gewichtungsmethode: Keine Gewichtung (alle w_i = 1)
+Von x = -7,000000000000000e+00 bis x = 7,000000000000000e+00
+a0 = 1,493026186744220e-01 +/- 4,174647601017175e-03
+a1 = 9,923060933911349e-18 +/- 1,294939487085770e-03
+a2 = -7,805424391758364e-03 +/- 4,813176342081843e-04
+a3 = -5,408542014209946e-19 +/- 3,564010780773366e-05
+a4 = 1,011526464474675e-04 +/- 9,783767982772987e-06
+--------------------------------------------------------------------------------------
+Chi^2/doF = 7,276211075415574e-05
+R^2 = 0,984246705567511
+Angepasstes R^2 = 0,97549487532724
+RMSE (Standardabweichung) = 0,00853007097005387
+RSS (Summe der quadrierten Restwerte) = 0,000727621107541557
+---------------------------------------------------------------------------------------
+[02.07.14 18:45	Diagramm: ''Grafik1'']
+Polynom-Fit von Datensatz: Tabelle1_2, unter Verwendung der Funktion: a0+a1*x+a2*x^2+a3*x^3+a4*x^4+a5*x^5+a6*x^6
+Gewichtungsmethode: Keine Gewichtung (alle w_i = 1)
+Von x = -7,000000000000000e+00 bis x = 7,000000000000000e+00
+a0 = 1,573549100524052e-01 +/- 1,233186606094701e-03
+a1 = 3,068340736854586e-17 +/- 5,828118589226761e-04
+a2 = -1,100263141833870e-02 +/- 2,863636281175952e-04
+a3 = -1,543326851815576e-19 +/- 4,269344864741045e-05
+a4 = 2,812108286495927e-04 +/- 1,483304731151931e-05
+a5 = -8,076387181730366e-21 +/- 6,894543528278188e-07
+a6 = -2,460422365494882e-06 +/- 1,999039518965627e-07
+--------------------------------------------------------------------------------------
+Chi^2/doF = 4,562247616354097e-06
+R^2 = 0,999209803792337
+Angepasstes R^2 = 0,998419607584674
+RMSE (Standardabweichung) = 0,00213594185696945
+RSS (Summe der quadrierten Restwerte) = 3,64979809308328e-05
+---------------------------------------------------------------------------------------
+</log>

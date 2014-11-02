@@ -1,0 +1,6 @@
+#ifndef CONFIGCOLUMNS_H_INCLUDED
+#define CONFIGCOLUMNS_H_INCLUDED
+
+#include <ConfigColumnTemplate.h>
+
+#endif // CONFIGCOLUMNS_H_INCLUDED

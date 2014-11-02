@@ -1,0 +1,39 @@
+#include "Console.h"
+
+Console::Console()
+{
+    //ctor
+}
+
+Console::~Console()
+{
+    //dtor
+}
+
+std::string Console::FileAdress(std::string a)
+{
+    return WebAdress(a);
+}
+
+std::string Console::WebAdress(std::string a)
+{
+    return ConsoleFormats::Underlined + a + ConsoleFormats::Reset;
+}
+
+std::string Console::Header(std::string a)
+{
+    return __S__("\n") + ConsoleFormats::Bold + ConsoleFormats::Inverted + a + ConsoleFormats::Reset + __S__("\n");
+}
+
+std::string Console::Header(std::string a, size_t s)
+{
+    return __S__("\n") + ConsoleFormats::Bold + ConsoleFormats::Inverted + a + StringHelper::blank(s-a.size()) + ConsoleFormats::Reset + __S__("\n");
+}
+
+std::string Console::input(std::string q)
+{
+    std::string out;
+    std::cout << ConsoleBlocks::Info << q << "\n" << ConsoleBlocks::Input;
+    std::getline(std::cin, out);
+    return out;
+}

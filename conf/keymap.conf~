@@ -1,0 +1,21 @@
+Keyboard[index:"1";]
+{
+	Escape:"Exit";
+	Up:"North";
+	Down:"South";
+	Left:"West";
+	Right:"East";
+	F1:"Help";
+	F2:"NormalView";
+}
+Mouse[]
+{
+	Select:"LeftButton";
+	Options:"RightButton";
+	Paste:"MiddleButton";
+	Scroll:"WheelMove";
+	Move:"MouseMove";
+	Rotate:"RightClickMove";
+	Drag:"LeftClickMove";
+	Special:"LRClickMove";
+}

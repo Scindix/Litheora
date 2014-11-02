@@ -1,0 +1,83 @@
+#include "Render.h"
+#include <gl_inc_hs.h>
+
+Render::Render()
+{
+    camera = *new Camera();
+
+	// OpenGL init
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+}
+
+Render::~Render()
+{
+    //dtor
+}
+
+void Render::draw()
+{
+    ///if (deltaMove)
+	///	computePos(deltaMove);
+
+	// Clear Color and Depth Buffers
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	// Reset transformations
+	glLoadIdentity();
+	// Set the camera
+	camera.initView();
+
+// Draw ground
+
+	glColor3f(0.9f, 0.9f, 0.9f);
+	glBegin(GL_QUADS);
+		glVertex3f(-100.0f, 0.0f, -100.0f);
+		glVertex3f(-100.0f, 0.0f,  100.0f);
+		glVertex3f( 100.0f, 0.0f,  100.0f);
+		glVertex3f( 100.0f, 0.0f, -100.0f);
+	glEnd();
+/**
+// Draw 36 SnowMen
+	char number[3];
+	for(int i = -3; i < 3; i++)
+		for(int j=-3; j < 3; j++) {
+			glPushMatrix();
+			glTranslatef(i*10.0f, 0.0f, j * 10.0f);
+			drawSnowMan();
+			sprintf(number,"%d",(i+3)*6+(j+3));
+			renderStrokeFontString(0.0f, 0.5f, 0.0f, (void *)font ,number);
+			glPopMatrix();
+		}
+
+	// Code to compute frames per second
+	frame++;
+
+	fpstime=glutGet(GLUT_ELAPSED_TIME);
+	if (fpstime - timebase > 1000) {
+		sprintf(s,"Lighthouse3D - FPS:%4.2f",
+			frame*1000.0/(fpstime-timebase));
+		timebase = fpstime;
+		frame = 0;
+	}
+
+	setOrthographicProjection();
+	void *font= GLUT_BITMAP_8_BY_13;
+	glPushMatrix();
+	glLoadIdentity();
+	renderBitmapString(30,15,0,font,(char *)"GLUT Tutorial @ Lighthouse3D");
+	renderBitmapString(30,30,0,font,s);
+	renderBitmapString(30,45,0,font,(char *)"F1 - Game Mode  640x480 32 bits");
+	renderBitmapString(30,60,0,font,(char *)"F2 - Game Mode  800x600 32 bits");
+	renderBitmapString(30,75,0,font,(char *)"F3 - Game Mode 1024x768 32 bits");
+	renderBitmapString(30,90,0,font,(char *)"F4 - Game Mode 1280x1024 32 bits");
+	renderBitmapString(30,105,0,font,(char *)"F5 - Game Mode 1920x1200 32 bits");
+	renderBitmapString(30,120,0,font,(char *)"F6 - Window Mode");
+	renderBitmapString(30,135,0,font,(char *)"Esc - Quit");
+	renderBitmapString(30,150,0,font,currentMode);
+	glPopMatrix();
+
+	restorePerspectiveProjection();
+**/
+	glutSwapBuffers();
+}

@@ -1,0 +1,320 @@
+#include "Property.h"
+
+Property::Property()
+{
+    m_name = "";
+    m_value = nullptr;
+    m_type = PropertyType::VOID;
+}
+
+Property::~Property()
+{
+    //dtor
+}
+
+Property::Property(std::string n, int v)
+{
+    m_name = n;
+    m_value = (void*)&v;
+    m_type = PropertyType::INT;
+}
+
+Property::Property(std::string n, double v)
+{
+    m_name = n;
+    m_value = (void*)&v;
+    m_type = PropertyType::DOUBLE;
+}
+
+Property::Property(std::string n, std::string v)
+{
+    m_name = n;
+    m_value = (void*)&v;
+    m_type = PropertyType::STRING;
+}
+
+Property::Property(std::string n, Config* v)
+{
+    m_name = n;
+    m_value = (void*)&v;
+    m_type = PropertyType::LIST;
+}
+
+std::string Property::name()
+{
+    return m_name;
+}
+
+void* Property::value()
+{
+    return m_value;
+}
+
+void Property::setValue(void* v)
+{
+    m_value = v;
+}
+
+std::string Property::valueSTRING()
+{
+    if(m_type == PropertyType::STRING)
+        return __S__((const char*)m_value);
+    else
+        throw(Error::ConfigTypesNotMatch);
+}
+
+int Property::valueINT()
+{
+    if(m_type == PropertyType::INT)
+        return *((int*)m_value);
+    else
+        throw(Error::ConfigTypesNotMatch);
+}
+
+double Property::valueDOUBLE()
+{
+    if(m_type == PropertyType::DOUBLE)
+        return *((double*)m_value);
+    else
+        throw(Error::ConfigTypesNotMatch);
+}
+
+bool Property::valueBOOL()
+{
+    if(m_type == PropertyType::BOOL)
+        return *((bool*)m_value);
+    else
+        throw(Error::ConfigTypesNotMatch);
+}
+
+char Property::type()
+{
+    return m_type;
+}
+
+std::string Property::getString()
+{
+    switch(m_type)
+    {
+    case PropertyType::VOID:
+        return __S__("null");
+    case PropertyType::INT:
+        return std::to_string(valueINT());
+    case PropertyType::DOUBLE:
+        return std::to_string(valueDOUBLE());
+    case PropertyType::STRING:
+        return __S__("\"") + valueSTRING() + __S__("\"");
+    case PropertyType::LIST:
+        return __S__("LIST");
+    case PropertyType::BOOL:
+        return std::to_string(valueBOOL());
+    case PropertyType::BITMASK:
+        return __S__("BITMASK");
+    default:
+        return __S__("null");
+    }
+}
+
+std::string Property::getStatusString(char c)
+{
+    switch(c)
+    {
+    case PropertyType::VOID:
+        return __S__("VOID");
+    case PropertyType::INT:
+        return __S__("INT");
+    case PropertyType::DOUBLE:
+        return __S__("DOUBLE");
+    case PropertyType::STRING:
+        return __S__("STRING");
+    case PropertyType::LIST:
+        return __S__("LIST");
+    case PropertyType::BOOL:
+        return __S__("BOOL");
+    case PropertyType::BITMASK:
+        return __S__("BITMASK");
+    default:
+        return __S__("UNKNOWN");
+    }
+}
+
+//#define DEBUG_PARSE_PROPERTY
+bool Property::parse(std::string* line, size_t* initial, char stop, size_t* lineNumber)
+{
+    std::string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+    std::string numbers = "0123456789";
+    size_t pos = *initial;
+    std::string name = "";
+    bool first = true;
+    bool equalSign = true;
+    while(true)
+    {
+#ifdef DEBUG_PARSE_PROPERTY
+            std::cout << "\tsearching empty characters\n";
+#endif // DEBUG_PARSE_PROPERTY
+        if(pos >= line->size())
+            throw(Error::ConfigSectionUnclosed);
+        if(line->at(pos)==stop)
+        {
+            *initial = pos+1;
+            return false;
+        }
+        if(line->at(pos)==' ' || line->at(pos)=='\t' || line->at(pos)=='\n' || line->at(pos)=='\r')
+        {
+            if(line->at(pos)=='\n')
+                (*lineNumber)++;
+            pos++;
+        }
+        else
+            break;
+    }
+    while(true)
+    {
+#ifdef DEBUG_PARSE_PROPERTY
+            std::cout << "\tname string\n";
+#endif // DEBUG_PARSE_PROPERTY
+        if(pos >= line->size())
+            throw(Error::ConfigStatementUnclosed);
+        if((!first && numbers.find(line->at(pos))!=std::string::npos) || (chars.find(line->at(pos))!=std::string::npos))
+        {
+            name.push_back(line->at(pos));
+            pos++;
+        }
+        else if(line->at(pos)==' ' || line->at(pos)=='\t' || line->at(pos)=='\n' || line->at(pos)=='\r' || line->at(pos)=='=')
+            break;
+        else
+            throw(Error::ConfigUnrecognizedCharL);
+        first = false;
+    }
+    while(true)
+    {
+#ifdef DEBUG_PARSE_PROPERTY
+            std::cout << "\tsearching empty characters\n";
+#endif // DEBUG_PARSE_PROPERTY
+        if(pos >= line->size() || line->at(pos)==stop)
+            throw(Error::ConfigStatementUnclosed);
+        if(line->at(pos)==' ' || line->at(pos)=='\t' || line->at(pos)=='\n' || line->at(pos)=='\r')
+        {
+            if(line->at(pos)=='\n')
+                (*lineNumber)++;
+            pos++;
+        }
+        else if(line->at(pos)=='=' && equalSign)
+        {
+            equalSign = false;
+            pos++;
+        }
+        else
+            break;
+    }
+    if(equalSign)
+        throw(Error::ConfigMissingEqual);
+    if(line->at(pos)=='"')
+    {
+        size_t endTag;
+        size_t posOffset = pos;
+        while(true)
+        {
+#ifdef DEBUG_PARSE_PROPERTY
+            std::cout << "\tsearching closing quote: pos='" << pos << "'; char='" << line->at(pos) << "'\n";
+#endif // DEBUG_PARSE_PROPERTY
+            endTag = line->find('"', posOffset+1);
+            if(endTag == std::string::npos)
+                throw(Error::ConfigMissingStringEnd);
+            if(line->at(endTag-1) != '\\')
+                break;
+            else
+                posOffset++;
+        }
+        std::string value = line->substr(pos+1, endTag-(pos+1));
+        m_name = name;
+        StringHelper::replaceAll(value, "\\n", "\n");
+        StringHelper::replaceAll(value, "\\t", "\t");
+        StringHelper::replaceAll(value, "\\v", "\v");
+        StringHelper::replaceAll(value, "\\\"", "\"");
+        StringHelper::replaceAll(value, "\\a", "\a");
+        StringHelper::replaceAll(value, "\\b", "\b");
+        m_value = (void*)__S__(value).c_str();
+        m_type = PropertyType::STRING;
+
+        pos = endTag+1;
+        while(true)
+        {
+#ifdef DEBUG_PARSE_PROPERTY
+            std::cout << "\tsearching empty characters (to the end of line)\n";
+#endif // DEBUG_PARSE_PROPERTY
+            if(pos >= line->size() || line->at(pos)==stop)
+                throw(Error::ConfigStatementUnclosed);
+            if(line->at(pos)==' ' || line->at(pos)=='\t' || line->at(pos)=='\n' || line->at(pos)=='\r')
+            {
+                if(line->at(pos)=='\n')
+                    (*lineNumber)++;
+                pos++;
+            }
+            else if(line->at(pos)==';')
+            {
+                *initial = pos+1;
+                return true;
+            }
+            else
+                throw(Error::ConfigUnrecognizedCharRFSemi);
+        }
+    } else if(numbers.find(line->at(pos))!=std::string::npos)
+    {
+std::cout << "Number found!\n";
+        std::string f = "";
+        bool comma = true;
+        while(true)
+        {
+#ifdef DEBUG_PARSE_PROPERTY
+            std::cout << "\number\n";
+#endif // DEBUG_PARSE_PROPERTY
+            if(numbers.find(line->at(pos))!=std::string::npos || (comma && line->at(pos)=='.'))
+            {
+                f.push_back(line->at(pos));
+                pos++;
+                if(line->at(pos)=='.')
+                    comma = false;
+            } else
+                break;
+        }
+        if(comma)
+        {
+            m_name = name;
+            int fS = atoi(f.c_str());
+            m_value = (void*)&fS;
+            m_type = PropertyType::INT;
+        } else
+        {
+            m_name = name;
+            double fS = atof(f.c_str());
+            m_value = (void*)&fS;
+            m_type = PropertyType::DOUBLE;
+        }
+
+
+        while(true)
+        {
+#ifdef DEBUG_PARSE_PROPERTY
+            std::cout << "\tsearching empty characters (to the end of line)\n";
+#endif // DEBUG_PARSE_PROPERTY
+            if(pos >= line->size() || line->at(pos)==stop)
+                throw(Error::ConfigStatementUnclosed);
+            if(line->at(pos)==' ' || line->at(pos)=='\t' || line->at(pos)=='\n' || line->at(pos)=='\r')
+            {
+                if(line->at(pos)=='\n')
+                    (*lineNumber)++;
+                pos++;
+            }
+            else if(line->at(pos)==';')
+            {
+                *initial = pos+1;
+                return true;
+            }
+            else
+                throw(Error::ConfigUnrecognizedCharR);
+        }
+    }
+    else
+        throw(Error::ConfigUnrecognizedCharR);
+}

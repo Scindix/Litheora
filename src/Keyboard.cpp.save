@@ -1,0 +1,156 @@
+#include "Keyboard.h"
+
+Keyboard::Keyboard(/*void(*rID(void))*/)
+{
+    gameModeString = (char*)"640x480";
+    keyDefineTable =
+    {
+        {
+            "Escape", 27
+        },
+        {
+            "Up", GLUT_KEY_UP
+        },
+        {
+            "Down", GLUT_KEY_DOWN
+        },
+        {
+            "F1", GLUT_KEY_F1
+        },
+        {
+            "F2", GLUT_KEY_F2
+        },
+        {
+            "F3", GLUT_KEY_F3
+        },
+        {
+            "F4", GLUT_KEY_F4
+        },
+        {
+            "F5", GLUT_KEY_F5
+        },
+        {
+            "F6", GLUT_KEY_F6
+        }
+    };
+    //std::cout << (Config::root/"conf/keymap"%"Keyboard"/"Escape").valueSTRING();
+}
+
+Keyboard::~Keyboard()
+{
+    //dtor
+}
+
+void Keyboard::processNormalKeys(unsigned char key, int xx, int yy) {
+
+	switch (key) {
+		case 27:
+			if (glutGameModeGet(GLUT_GAME_MODE_ACTIVE) != 0)
+				glutLeaveGameMode();
+			exit(0);
+			break;
+	}
+}
+
+void Keyboard::pressKey(int key, int xx, int yy) {
+
+	switch (key) {
+		///case GLUT_KEY_UP : deltaMove = 0.5f; break;
+		///case GLUT_KEY_DOWN : deltaMove = -0.5f; break;
+		case GLUT_KEY_F1:
+			// define resolution, color depth
+			glutGameModeString("640x480:32");
+			// enter full screen
+			if (glutGameModeGet(GLUT_GAME_MODE_POSSIBLE)) {
+				glutEnterGameMode();
+				sprintf(gameModeString,"640x480:32");
+				// register callbacks again
+				// and init OpenGL context
+				///*reInitDisplay();
+			}
+			else
+				glutGameModeString(gameModeString);
+			break;
+		case GLUT_KEY_F2:
+			// define resolution, color depth
+			glutGameModeString("800x600:32");
+			// enter full screen
+			if (glutGameModeGet(GLUT_GAME_MODE_POSSIBLE)) {
+				glutEnterGameMode();
+				sprintf(gameModeString,"800x600:32");
+				// register callbacks again
+				// and init OpenGL context
+				///*reInitDisplay();
+			}
+			else
+				glutGameModeString(gameModeString);
+			break;
+		case GLUT_KEY_F3:
+			// define resolution, color depth
+			glutGameModeString("1024x768:32");
+			// enter full screen
+			if (glutGameModeGet(GLUT_GAME_MODE_POSSIBLE)) {
+				glutEnterGameMode();
+				sprintf(gameModeString,"1024x768:32");
+				// register callbacks again
+				// and init OpenGL context
+				///*reInitDisplay();
+			}
+			else
+				glutGameModeString(gameModeString);
+			break;
+		case GLUT_KEY_F4:
+			// define resolution, color depth
+			glutGameModeString("1280x1024:32");
+			// enter full screen
+			if (glutGameModeGet(GLUT_GAME_MODE_POSSIBLE)) {
+				glutEnterGameMode();
+				sprintf(gameModeString,"1280x1024:32");
+				// register callbacks again
+				// and init OpenGL context
+				///*reInitDisplay();
+			}
+			else
+				glutGameModeString(gameModeString);
+			break;
+		case GLUT_KEY_F5:
+			// define resolution, color depth
+			glutGameModeString("1920x1200");
+			// enter full screen
+			if (glutGameModeGet(GLUT_GAME_MODE_POSSIBLE)) {
+				glutEnterGameMode();
+				sprintf(gameModeString,"1920x1200");
+				// register callbacks again
+				// and init OpenGL context
+				///*reInitDisplay();
+			}
+			else
+				glutGameModeString(gameModeString);
+			break;
+		case GLUT_KEY_F6:
+			// return to default window
+			///w = 800;h = 600;
+			if (glutGameModeGet(GLUT_GAME_MODE_ACTIVE) != 0) {
+				glutLeaveGameMode();
+				///*reInitDisplay();
+			}
+			break;
+	}
+	/**if (glutGameModeGet(GLUT_GAME_MODE_ACTIVE) == 0)
+		sprintf(currentMode,"Current Mode: Window");
+	else
+		sprintf(currentMode,
+			"Current Mode: Game Mode %dx%d at %d hertz, %d bpp",
+			glutGameModeGet(GLUT_GAME_MODE_WIDTH),
+			glutGameModeGet(GLUT_GAME_MODE_HEIGHT),
+			glutGameModeGet(GLUT_GAME_MODE_REFRESH_RATE),
+			glutGameModeGet(GLUT_GAME_MODE_PIXEL_DEPTH));**/
+}
+
+void Keyboard::releaseKey(int key, int x, int y) {
+
+	/**switch (key) {
+		case GLUT_KEY_UP :
+		///case GLUT_KEY_DOWN : deltaMove = 0;break;
+	}**/
+}

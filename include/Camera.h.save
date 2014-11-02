@@ -1,0 +1,22 @@
+#include <include.h>
+#include <gl_inc_hs.h>
+#include <Vector.h>
+
+#ifndef CAMERA_H
+#define CAMERA_H
+
+
+class Camera
+{
+    public:
+        Camera();
+        virtual ~Camera();
+        void reshape(int, int);
+    protected:
+    private:
+        int height,w;
+        Vector direction = {0.0, 0.0, -1.0};
+        Vector position = {0.0, 0.0, 5.0};
+};
+
+#endif // CAMERA_H

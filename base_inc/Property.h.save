@@ -1,0 +1,53 @@
+#ifndef PROPERTY_H
+#define PROPERTY_H
+
+//#include <include.h>
+#include <string>
+#include <vector>
+#include "error.h"
+#include "platform.h"
+#include <stdlib.h>
+#include "StringHelper.h"
+
+#define __S__(s) (*new std::string(s))
+
+namespace PropertyType
+{
+    const char VOID = 0;
+    const char INT = 1;
+    const char DOUBLE = 2;
+    const char STRING = 3;
+    const char LIST = 4;
+    const char BOOL = 5;
+    const char BITMASK = 6;
+};
+
+class Config;
+
+class Property
+{
+    public:
+        Property();
+        Property(std::string, int);
+        Property(std::string, double);
+        Property(std::string, std::string);
+        Property(std::string, Config*);
+        bool parse(std::string*, size_t*, char, size_t*);
+        virtual ~Property();
+        std::string name();
+        void* value();
+        std::string valueSTRING();
+        int valueINT();
+        double valueDOUBLE();
+        void setValue(void*);
+        std::string getString();
+        char type();
+        static std::string getStatusString(char);
+    protected:
+    private:
+        void* m_value;
+        std::string m_name;
+        char m_type;
+};
+
+#endif // PROPERTY_H

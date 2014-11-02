@@ -1,0 +1,971 @@
+# depslib dependency file v1.0
+1399361553 source:/home/cedric/CodeBlocks-local/Arelium/main.cpp
+	<stdlib.h>
+	<math.h>
+	"Main.h"
+	"include.h"
+
+1399361564 source:/home/cedric/CodeBlocks-local/Arelium/base_inc/Console.cpp
+	"Console.h"
+
+1399361562 /home/cedric/CodeBlocks-local/Arelium/base_inc/Console.h
+	<StringHelper.h>
+	<string>
+	<iostream>
+
+1398643337 source:/home/cedric/CodeBlocks-local/Arelium/base_inc/Exception.cpp
+	"Exception.h"
+
+1398643337 /home/cedric/CodeBlocks-local/Arelium/base_inc/Exception.h
+	<string>
+	<iostream>
+	<Console.h>
+	<exception>
+
+1399366964 source:/home/cedric/CodeBlocks-local/Arelium/base_inc/Config.cpp
+	"Config.h"
+
+1399364073 /home/cedric/CodeBlocks-local/Arelium/base_inc/Config.h
+	<ConfigSection.h>
+	"StringHelper.h"
+	"Text.h"
+	"Folder.h"
+	"preprocessor.h"
+	"StringHelper.h"
+
+1399361552 /home/cedric/CodeBlocks-local/Arelium/base_inc/ConfigSection.h
+	<Property.h>
+
+1399361560 /home/cedric/CodeBlocks-local/Arelium/base_inc/Property.h
+	<string>
+	<vector>
+	"error.h"
+	"platform.h"
+	<stdlib.h>
+	"StringHelper.h"
+
+1399364073 /home/cedric/CodeBlocks-local/Arelium/base_inc/error.h
+	"Exception.h"
+
+1398643334 /home/cedric/CodeBlocks-local/Arelium/base_inc/platform.h
+	"debug.h"
+	"release.h"
+
+1398643353 /home/cedric/CodeBlocks-local/Arelium/base_inc/debug.h
+
+1398643333 /home/cedric/CodeBlocks-local/Arelium/base_inc/release.h
+
+1399361563 /home/cedric/CodeBlocks-local/Arelium/base_inc/StringHelper.h
+	<sstream>
+	<utility>
+	<vector>
+
+1398643344 /home/cedric/CodeBlocks-local/Arelium/base_inc/Text.h
+	<fstream>
+	<iostream>
+	"error.h"
+	<string>
+
+1398643343 /home/cedric/CodeBlocks-local/Arelium/base_inc/Folder.h
+	<vector>
+	<string>
+	<dirent.h>
+	<Console.h>
+	<StringHelper.h>
+	<error.h>
+
+1399361561 /home/cedric/CodeBlocks-local/Arelium/base_inc/preprocessor.h
+	<string>
+
+1399361552 source:/home/cedric/CodeBlocks-local/Arelium/base_inc/ConfigSection.cpp
+	"ConfigSection.h"
+
+1398643341 source:/home/cedric/CodeBlocks-local/Arelium/base_inc/ExpHelper.cpp
+	"ExpHelper.h"
+
+1398643341 /home/cedric/CodeBlocks-local/Arelium/base_inc/ExpHelper.h
+	<regex>
+	<Console.h>
+	<StringHelper.h>
+	<iostream>
+	"Language.h"
+
+1398643342 /home/cedric/CodeBlocks-local/Arelium/base_inc/Language.h
+	<string>
+	<vector>
+	"error.h"
+	"Text.h"
+	"Config.h"
+
+1398643344 source:/home/cedric/CodeBlocks-local/Arelium/base_inc/Folder.cpp
+	"Folder.h"
+
+1399361558 source:/home/cedric/CodeBlocks-local/Arelium/base_inc/Language.cpp
+	"Language.h"
+
+1399444121 source:/home/cedric/CodeBlocks-local/Arelium/base_inc/Property.cpp
+	"Property.h"
+
+1399361563 source:/home/cedric/CodeBlocks-local/Arelium/base_inc/StringHelper.cpp
+	"StringHelper.h"
+	<error.h>
+
+1398643345 source:/home/cedric/CodeBlocks-local/Arelium/base_inc/Text.cpp
+	"Text.h"
+
+1399361370 source:/home/cedric/CodeBlocks-local/Arelium/src/Camera.cpp
+	"Camera.h"
+
+1399361369 /home/cedric/CodeBlocks-local/Arelium/include/Camera.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Vector.h>
+
+1398643336 /home/cedric/CodeBlocks-local/Arelium/base_inc/include.h
+	"variables.h"
+	"preprocessor.h"
+	"platform.h"
+	"error.h"
+	"ExpHelper.h"
+	"Config.h"
+	"Console.h"
+	"Language.h"
+	<string>
+	<vector>
+	<list>
+	<iostream>
+
+1398643335 /home/cedric/CodeBlocks-local/Arelium/base_inc/variables.h
+
+1398643350 /home/cedric/CodeBlocks-local/Arelium/include/Main.h
+	"include.h"
+	"Text.h"
+	"Commands.h"
+
+1399361557 /home/cedric/CodeBlocks-local/Arelium/include/Commands.h
+	<regex>
+	<include.h>
+	"Language.h"
+	<Game.h>
+	<ConfigExplorer.h>
+
+1399361557 source:/home/cedric/CodeBlocks-local/Arelium/src/Commands.cpp
+	"Commands.h"
+
+1398643350 source:/home/cedric/CodeBlocks-local/Arelium/src/Main.cpp
+	"Main.h"
+
+1399364124 /home/cedric/CodeBlocks-local/Arelium/include/Game.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Camera.h>
+	<Render.h>
+	<Keyboard.h>
+	<Mouse.h>
+
+1399361367 source:/home/cedric/CodeBlocks-local/Arelium/src/Game.cpp
+	"Game.h"
+
+1398643381 /home/cedric/CodeBlocks-local/Arelium/include/gl_inc_hs.h
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<GLUT.h>
+
+1398643367 /home/cedric/CodeBlocks-local/Arelium/include/Render.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Camera.h>
+
+1399361551 /home/cedric/CodeBlocks-local/Arelium/include/Keyboard.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1398643381 /home/cedric/CodeBlocks-local/Arelium/include/Mouse.h
+	<include.h>
+
+1399361513 source:/home/cedric/CodeBlocks-local/Arelium/src/GLUT.cpp
+	"GLUT.h"
+
+1398643372 /home/cedric/CodeBlocks-local/Arelium/include/GLUT.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1399361556 source:/home/cedric/CodeBlocks-local/Arelium/src/Keyboard.cpp
+	"Keyboard.h"
+
+1398643380 source:/home/cedric/CodeBlocks-local/Arelium/src/Mouse.cpp
+	"Mouse.h"
+
+1399361371 source:/home/cedric/CodeBlocks-local/Arelium/src/Render.cpp
+	"Render.h"
+	<gl_inc_hs.h>
+
+1399361362 source:/home/cedric/CodeBlocks-local/Arelium/src/GameController.cpp
+	"GameController.h"
+
+1399361364 /home/cedric/CodeBlocks-local/Arelium/include/GameController.h
+	<include.h>
+
+1399361364 /home/cedric/CodeBlocks-local/Arelium/include/Vector.h
+	<include.h>
+
+1399361361 source:/home/cedric/CodeBlocks-local/Arelium/src/Vector.cpp
+	"Vector.h"
+
+1391476387 source:/home/cedric/program/CodeBlocks-local/Arelium/base_inc/Config.cpp
+	"Config.h"
+
+1391449072 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/Config.h
+	<ConfigSection.h>
+	"StringHelper.h"
+	"Text.h"
+	"Folder.h"
+	"preprocessor.h"
+	"StringHelper.h"
+
+1391620294 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/ConfigSection.h
+	<Property.h>
+
+1391463825 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/Property.h
+	<string>
+	<vector>
+	"error.h"
+	"platform.h"
+	<stdlib.h>
+	"StringHelper.h"
+
+1391622240 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/error.h
+	"Exception.h"
+
+1391292428 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/Exception.h
+	<string>
+	<iostream>
+	<Console.h>
+	<exception>
+
+1391620294 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/Console.h
+	<string>
+	<iostream>
+
+1391034723 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/platform.h
+	"debug.h"
+	"release.h"
+
+1398537699 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/debug.h
+
+1389047246 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/release.h
+
+1391621921 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/StringHelper.h
+	<sstream>
+	<utility>
+	<vector>
+	<error.h>
+
+1391476178 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/Text.h
+	<fstream>
+	<iostream>
+	"error.h"
+	<string>
+
+1391291605 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/Folder.h
+	<vector>
+	<string>
+	<dirent.h>
+	<Console.h>
+	<StringHelper.h>
+	<error.h>
+
+1398541306 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/preprocessor.h
+	<string>
+
+1391620294 source:/home/cedric/program/CodeBlocks-local/Arelium/base_inc/ConfigSection.cpp
+	"ConfigSection.h"
+
+1391622300 source:/home/cedric/program/CodeBlocks-local/Arelium/base_inc/Console.cpp
+	"Console.h"
+
+1391211656 source:/home/cedric/program/CodeBlocks-local/Arelium/base_inc/Exception.cpp
+	"Exception.h"
+
+1391292428 source:/home/cedric/program/CodeBlocks-local/Arelium/base_inc/ExpHelper.cpp
+	"ExpHelper.h"
+
+1391292428 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/ExpHelper.h
+	<regex>
+	<Console.h>
+	<StringHelper.h>
+	<iostream>
+	"Language.h"
+
+1391292693 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/Language.h
+	<string>
+	<vector>
+	"error.h"
+	"Text.h"
+	"Config.h"
+
+1391291605 source:/home/cedric/program/CodeBlocks-local/Arelium/base_inc/Folder.cpp
+	"Folder.h"
+
+1398528065 source:/home/cedric/program/CodeBlocks-local/Arelium/base_inc/Language.cpp
+	"Language.h"
+
+1391463825 source:/home/cedric/program/CodeBlocks-local/Arelium/base_inc/Property.cpp
+	"Property.h"
+
+1391621852 source:/home/cedric/program/CodeBlocks-local/Arelium/base_inc/StringHelper.cpp
+	"StringHelper.h"
+
+1391476178 source:/home/cedric/program/CodeBlocks-local/Arelium/base_inc/Text.cpp
+	"Text.h"
+
+1398635301 source:/home/cedric/program/CodeBlocks-local/Arelium/main.cpp
+	<stdlib.h>
+	<math.h>
+	"Main.h"
+	"include.h"
+
+1398523478 /home/cedric/program/CodeBlocks-local/Arelium/include/Main.h
+	"include.h"
+	"Text.h"
+	"Commands.h"
+
+1391291726 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/include.h
+	"variables.h"
+	"preprocessor.h"
+	"platform.h"
+	"error.h"
+	"ExpHelper.h"
+	"Config.h"
+	"Console.h"
+	"Language.h"
+	<string>
+	<vector>
+	<list>
+	<iostream>
+
+1391207835 /home/cedric/program/CodeBlocks-local/Arelium/base_inc/variables.h
+
+1398537754 /home/cedric/program/CodeBlocks-local/Arelium/include/Commands.h
+	<regex>
+	<include.h>
+	"Language.h"
+	<Game.h>
+
+1398628947 /home/cedric/program/CodeBlocks-local/Arelium/include/Game.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Camera.h>
+	<Render.h>
+	<Keyboard.h>
+	<Mouse.h>
+
+1398628947 /home/cedric/program/CodeBlocks-local/Arelium/include/gl_inc_hs.h
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<GLUT.h>
+
+1398627352 /home/cedric/program/CodeBlocks-local/Arelium/include/GLUT.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1398718848 /home/cedric/program/CodeBlocks-local/Arelium/include/Camera.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Vector.h>
+
+1398637966 /home/cedric/program/CodeBlocks-local/Arelium/include/Vector.h
+	<include.h>
+
+1398555936 /home/cedric/program/CodeBlocks-local/Arelium/include/Render.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Camera.h>
+
+1398628538 /home/cedric/program/CodeBlocks-local/Arelium/include/Keyboard.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1398595881 /home/cedric/program/CodeBlocks-local/Arelium/include/Mouse.h
+	<include.h>
+
+1398719872 source:/home/cedric/program/CodeBlocks-local/Arelium/src/Camera.cpp
+	"Camera.h"
+
+1398541831 source:/home/cedric/program/CodeBlocks-local/Arelium/src/Commands.cpp
+	"Commands.h"
+
+1398639828 source:/home/cedric/program/CodeBlocks-local/Arelium/src/Game.cpp
+	"Game.h"
+
+1398629135 source:/home/cedric/program/CodeBlocks-local/Arelium/src/GameController.cpp
+	"GameController.h"
+
+1398629135 /home/cedric/program/CodeBlocks-local/Arelium/include/GameController.h
+	<include.h>
+
+1398628706 source:/home/cedric/program/CodeBlocks-local/Arelium/src/GLUT.cpp
+	"GLUT.h"
+
+1398628538 source:/home/cedric/program/CodeBlocks-local/Arelium/src/Keyboard.cpp
+	"Keyboard.h"
+
+1391622635 source:/home/cedric/program/CodeBlocks-local/Arelium/src/Main.cpp
+	"Main.h"
+
+1398595881 source:/home/cedric/program/CodeBlocks-local/Arelium/src/Mouse.cpp
+	"Mouse.h"
+
+1398638349 source:/home/cedric/program/CodeBlocks-local/Arelium/src/Vector.cpp
+	"Vector.h"
+
+1399361547 source:/home/cedric/CodeBlocks-local/Arelium/src/Color.cpp
+	<include.h>
+	"Color.h"
+
+1399361551 /home/cedric/CodeBlocks-local/Arelium/include/Color.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1399361370 source:/home/cedric/CodeBlocks-local/Arelium/src/Mesh.cpp
+	"Mesh.h"
+
+1399361551 /home/cedric/CodeBlocks-local/Arelium/include/Mesh.h
+	<include.h>
+	<Vector.h>
+	<Color.h>
+
+1399361550 source:/home/cedric/CodeBlocks-local/Arelium/src/Shader.cpp
+	<include.h>
+	"Shader.h"
+
+1399361546 /home/cedric/CodeBlocks-local/Arelium/include/Shader.h
+
+1399361547 source:/home/cedric/CodeBlocks-local/Arelium/src/Texture.cpp
+	<include.h>
+	"Texture.h"
+
+1399361546 /home/cedric/CodeBlocks-local/Arelium/include/Texture.h
+
+1399449289 /home/cedric/CodeBlocks-local/Arelium/include/ConfigExplorer.h
+	<include.h>
+
+1399447197 source:/home/cedric/CodeBlocks-local/Arelium/src/ConfigExplorer.cpp
+	"ConfigExplorer.h"
+
+1413786081 source:/home/cedric/CodeBlocks-local/arelium/base_inc/Config.cpp
+	"Config.h"
+
+1406548808 /home/cedric/CodeBlocks-local/arelium/base_inc/Config.h
+	<ConfigSection.h>
+	"StringHelper.h"
+	"Text.h"
+	"Folder.h"
+	"preprocessor.h"
+	"StringHelper.h"
+	"Folder.h"
+
+1399361552 /home/cedric/CodeBlocks-local/arelium/base_inc/ConfigSection.h
+	<Property.h>
+
+1409573624 /home/cedric/CodeBlocks-local/arelium/base_inc/Property.h
+	<string>
+	<vector>
+	"error.h"
+	"platform.h"
+	<ParserHelper.h>
+	<stdlib.h>
+	<PROPERTY_TYPE.h>
+	<CodePackage.h>
+
+1413785527 /home/cedric/CodeBlocks-local/arelium/base_inc/error.h
+	"Exception.h"
+
+1402864934 /home/cedric/CodeBlocks-local/arelium/base_inc/Exception.h
+	<string>
+	<iostream>
+	<Console.h>
+	<exception>
+
+1409239532 /home/cedric/CodeBlocks-local/arelium/base_inc/Console.h
+	<StringHelper.h>
+	<string>
+	<iostream>
+
+1413357613 /home/cedric/CodeBlocks-local/arelium/base_inc/StringHelper.h
+	<sstream>
+	<utility>
+	<vector>
+
+1398643334 /home/cedric/CodeBlocks-local/arelium/base_inc/platform.h
+	"debug.h"
+	"release.h"
+
+1401263018 /home/cedric/CodeBlocks-local/arelium/base_inc/debug.h
+
+1398643332 /home/cedric/CodeBlocks-local/arelium/base_inc/release.h
+
+1406510912 /home/cedric/CodeBlocks-local/arelium/base_inc/Text.h
+	<fstream>
+	<iostream>
+	"error.h"
+	<string>
+	<Folder.h>
+
+1406509244 /home/cedric/CodeBlocks-local/arelium/base_inc/Folder.h
+	<vector>
+	<string>
+	<dirent.h>
+	<Console.h>
+	<StringHelper.h>
+	<error.h>
+	<preprocessor.h>
+
+1409508648 /home/cedric/CodeBlocks-local/arelium/base_inc/preprocessor.h
+	<string>
+
+1413289626 source:/home/cedric/CodeBlocks-local/arelium/base_inc/ConfigSection.cpp
+	"ConfigSection.h"
+
+1409239532 source:/home/cedric/CodeBlocks-local/arelium/base_inc/Console.cpp
+	"Console.h"
+
+1409258184 source:/home/cedric/CodeBlocks-local/arelium/base_inc/Exception.cpp
+	"Exception.h"
+
+1406476366 source:/home/cedric/CodeBlocks-local/arelium/base_inc/ExpHelper.cpp
+	"ExpHelper.h"
+
+1398643340 /home/cedric/CodeBlocks-local/arelium/base_inc/ExpHelper.h
+	<regex>
+	<Console.h>
+	<StringHelper.h>
+	<iostream>
+	"Language.h"
+
+1398643342 /home/cedric/CodeBlocks-local/arelium/base_inc/Language.h
+	<string>
+	<vector>
+	"error.h"
+	"Text.h"
+	"Config.h"
+
+1409509090 source:/home/cedric/CodeBlocks-local/arelium/base_inc/Folder.cpp
+	"Folder.h"
+
+1413289626 source:/home/cedric/CodeBlocks-local/arelium/base_inc/Language.cpp
+	"Language.h"
+
+1404034892 source:/home/cedric/CodeBlocks-local/arelium/base_inc/StringHelper.cpp
+	"StringHelper.h"
+	<error.h>
+
+1413289626 source:/home/cedric/CodeBlocks-local/arelium/base_inc/Text.cpp
+	"Text.h"
+
+1414761544 source:/home/cedric/CodeBlocks-local/arelium/main.cpp
+	"Main.h"
+	"include.h"
+
+1398643350 /home/cedric/CodeBlocks-local/arelium/include/Main.h
+	"include.h"
+	"Text.h"
+	"Commands.h"
+
+1404065010 /home/cedric/CodeBlocks-local/arelium/base_inc/include.h
+	"variables.h"
+	"preprocessor.h"
+	"platform.h"
+	"error.h"
+	"ExpHelper.h"
+	"Config.h"
+	"Console.h"
+	"Language.h"
+	"ArrayInit.h"
+	<string>
+	<vector>
+	<map>
+	<list>
+	<iostream>
+	<cstdarg>
+	<sstream>
+
+1398643334 /home/cedric/CodeBlocks-local/arelium/base_inc/variables.h
+
+1406556500 /home/cedric/CodeBlocks-local/arelium/include/Commands.h
+	<regex>
+	<thread>
+	<include.h>
+	"Language.h"
+	<App.h>
+	<ConfigExplorer.h>
+
+1402928244 /home/cedric/CodeBlocks-local/arelium/include/Game.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Camera.h>
+	<Render.h>
+	<Keyboard.h>
+	<Mouse.h>
+	<GameController.h>
+
+1406557146 /home/cedric/CodeBlocks-local/arelium/include/gl_inc_hs.h
+	<GL/glew.h>
+	<GL/gl.h>
+	<GLH.h>
+	<GLUT/freeglut.h>
+	<GL/freeglut.h>
+
+1402472473 /home/cedric/CodeBlocks-local/arelium/include/GLUT.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1406242298 /home/cedric/CodeBlocks-local/arelium/include/Camera.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Vector.h>
+	<Matrix.h>
+	<Shader.h>
+
+1404287540 /home/cedric/CodeBlocks-local/arelium/include/Vector.h
+	<include.h>
+	<gl_inc_hs.h>
+	<iostream>
+
+1406370344 /home/cedric/CodeBlocks-local/arelium/include/Render.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Camera.h>
+	<FirstPersonCamera.h>
+	<Buffer.h>
+	<SimpleCube.h>
+	<DisplayMesh.h>
+	<WavefrontModel.h>
+	<FrameBuffer.h>
+	<BackgroundMap.h>
+	<Light.h>
+	<ctime>
+
+1404286246 /home/cedric/CodeBlocks-local/arelium/include/Keyboard.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1403116492 /home/cedric/CodeBlocks-local/arelium/include/Mouse.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1402443244 /home/cedric/CodeBlocks-local/arelium/include/ConfigExplorer.h
+	<include.h>
+
+1406245310 source:/home/cedric/CodeBlocks-local/arelium/src/Camera.cpp
+	"Camera.h"
+
+1402957086 source:/home/cedric/CodeBlocks-local/arelium/src/Color.cpp
+	<include.h>
+	"Color.h"
+
+1402957086 /home/cedric/CodeBlocks-local/arelium/include/Color.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1408803150 source:/home/cedric/CodeBlocks-local/arelium/src/Commands.cpp
+	"Commands.h"
+
+1406009625 source:/home/cedric/CodeBlocks-local/arelium/src/Game.cpp
+	"Game.h"
+
+1404285413 source:/home/cedric/CodeBlocks-local/arelium/src/GameController.cpp
+	"GameController.h"
+
+1402489201 /home/cedric/CodeBlocks-local/arelium/include/GameController.h
+	<include.h>
+	<Keyboard.h>
+
+1402676419 source:/home/cedric/CodeBlocks-local/arelium/src/GLUT.cpp
+	"GLUT.h"
+
+1408803218 source:/home/cedric/CodeBlocks-local/arelium/src/Keyboard.cpp
+	"Keyboard.h"
+
+1406558638 source:/home/cedric/CodeBlocks-local/arelium/src/Main.cpp
+	"Main.h"
+
+1406835430 source:/home/cedric/CodeBlocks-local/arelium/src/Mesh.cpp
+	"Mesh.h"
+
+1406835070 /home/cedric/CodeBlocks-local/arelium/include/Mesh.h
+	<include.h>
+	<Vector.h>
+	<Color.h>
+	<Texture.h>
+
+1408803348 source:/home/cedric/CodeBlocks-local/arelium/src/Mouse.cpp
+	"Mouse.h"
+
+1409789888 source:/home/cedric/CodeBlocks-local/arelium/src/Render.cpp
+	"Render.h"
+	<gl_inc_hs.h>
+
+1408536916 source:/home/cedric/CodeBlocks-local/arelium/src/Shader.cpp
+	"Shader.h"
+
+1406251284 /home/cedric/CodeBlocks-local/arelium/include/Shader.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1409764700 source:/home/cedric/CodeBlocks-local/arelium/src/Texture.cpp
+	<include.h>
+	"Texture.h"
+
+1409763860 /home/cedric/CodeBlocks-local/arelium/include/Texture.h
+	<gl_inc_hs.h>
+	<PNG.h>
+
+1404287540 source:/home/cedric/CodeBlocks-local/arelium/src/Vector.cpp
+	"Vector.h"
+
+1413289626 source:/home/cedric/CodeBlocks-local/arelium/base_inc/Property.cpp
+	"Property.h"
+	"ConfigTable.h"
+	"ConfigSection.h"
+
+1402468866 source:/home/cedric/CodeBlocks-local/arelium/src/ConfigExplorer.cpp
+	"ConfigExplorer.h"
+
+1402417082 /home/cedric/CodeBlocks-local/arelium/include/ConfigTable.h
+	<ParserHelper.h>
+	"ConfigColumns.h"
+
+1402425678 /home/cedric/CodeBlocks-local/arelium/include/ConfigColumn.h
+	"ConfigColumnItem.h"
+	<PROPERTY_TYPE.h>
+
+1401988870 /home/cedric/CodeBlocks-local/arelium/include/ConfigColumnItem.h
+	<include.h>
+
+1402419610 source:/home/cedric/CodeBlocks-local/arelium/src/ConfigColumn.cpp
+	"ConfigColumn.h"
+
+1401634824 source:/home/cedric/CodeBlocks-local/arelium/src/ConfigColumnItem.cpp
+	"ConfigColumnItem.h"
+
+1402442718 source:/home/cedric/CodeBlocks-local/arelium/src/ConfigTable.cpp
+	"ConfigTable.h"
+
+1409573470 /home/cedric/CodeBlocks-local/arelium/base_inc/PROPERTY_TYPE.h
+
+1401635594 /home/cedric/CodeBlocks-local/arelium/include/ParserHelper.h
+	<debug.h>
+	<StringHelper.h>
+
+1409258870 source:/home/cedric/CodeBlocks-local/arelium/src/ParserHelper.cpp
+	"ParserHelper.h"
+	<ConfigSection.h>
+
+1402161360 source:/home/cedric/CodeBlocks-local/arelium/src/ConfigColumnINT.cpp
+	"ConfigColumnINT.h"
+
+1402161360 /home/cedric/CodeBlocks-local/arelium/include/ConfigColumnINT.h
+	<include.h>
+	<ConfigColumn.h>
+
+1402322728 /home/cedric/CodeBlocks-local/arelium/base_inc/ConfigColumns.h
+	<ConfigColumnTemplate.h>
+
+1402161944 /home/cedric/CodeBlocks-local/arelium/include/ConfigColumnSTRING.h
+	<include.h>
+	<ConfigColumn.h>
+
+1402161944 /home/cedric/CodeBlocks-local/arelium/include/ConfigColumnBOOL.h
+	<include.h>
+	<ConfigColumn.h>
+
+1402161944 /home/cedric/CodeBlocks-local/arelium/include/ConfigColumnDOUBLE.h
+	<include.h>
+	<ConfigColumn.h>
+
+1402161944 source:/home/cedric/CodeBlocks-local/arelium/src/ConfigColumnBOOL.cpp
+	"ConfigColumnBOOL.h"
+
+1402161944 source:/home/cedric/CodeBlocks-local/arelium/src/ConfigColumnDOUBLE.cpp
+	"ConfigColumnDOUBLE.h"
+
+1402161944 source:/home/cedric/CodeBlocks-local/arelium/src/ConfigColumnSTRING.cpp
+	"ConfigColumnSTRING.h"
+
+1402431782 /home/cedric/CodeBlocks-local/arelium/include/ConfigColumnTemplate.h
+	<include.h>
+	<ConfigColumn.h>
+
+1402469782 source:/home/cedric/CodeBlocks-local/arelium/src/ConfigColumnTemplate.cpp
+	"ConfigColumnTemplate.h"
+
+1413289626 source:/home/cedric/CodeBlocks-local/arelium/src/Buffer.cpp
+	"Buffer.h"
+
+1406835096 /home/cedric/CodeBlocks-local/arelium/include/Buffer.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Mesh.h>
+	<Shader.h>
+	<MirrorCube.h>
+
+1402957332 /home/cedric/CodeBlocks-local/arelium/include/SimpleCube.h
+	<include.h>
+	<Mesh.h>
+
+1406304968 source:/home/cedric/CodeBlocks-local/arelium/src/SimpleCube.cpp
+	"SimpleCube.h"
+
+1403889640 /home/cedric/CodeBlocks-local/arelium/include/Matrix.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1403953768 source:/home/cedric/CodeBlocks-local/arelium/src/Matrix.cpp
+	"Matrix.h"
+
+1403951962 /home/cedric/CodeBlocks-local/arelium/include/ArrayInit.h
+	<vector>
+	<stddef.h>
+	<iostream>
+
+1403951276 source:/home/cedric/CodeBlocks-local/arelium/src/ArrayInit.cpp
+	"ArrayInit.h"
+
+1404847014 /home/cedric/CodeBlocks-local/arelium/include/WavefrontModel.h
+	<include.h>
+	<Mesh.h>
+	<Buffer.h>
+
+1413289626 source:/home/cedric/CodeBlocks-local/arelium/src/WavefrontModel.cpp
+	"WavefrontModel.h"
+
+1404064947 /home/cedric/CodeBlocks-local/arelium/base_inc/File.h
+	"Text.h"
+	"PNG.h"
+	"BMP.h"
+	"Folder.h"
+
+1409239276 /home/cedric/CodeBlocks-local/arelium/base_inc/PNG.h
+	<string>
+	<iostream>
+	<unistd.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<stdarg.h>
+	<Console.h>
+	<png.h>
+	<GL/gl.h>
+	<ThreadHelper.h>
+
+1404062278 /home/cedric/CodeBlocks-local/arelium/base_inc/JPG.h
+	<stdio.h>
+	<stdlib.h>
+	<jpeglib.h>
+	<jerror.h>
+	<string>
+	<GL/gl.h>
+
+1404062278 /home/cedric/CodeBlocks-local/arelium/base_inc/BMP.h
+
+1404062278 source:/home/cedric/CodeBlocks-local/arelium/base_inc/BMP.cpp
+	"BMP.h"
+
+1404062278 source:/home/cedric/CodeBlocks-local/arelium/base_inc/JPG.cpp
+	"JPG.h"
+
+1413289626 source:/home/cedric/CodeBlocks-local/arelium/base_inc/PNG.cpp
+	"PNG.h"
+
+1406331502 /home/cedric/CodeBlocks-local/arelium/include/DisplayMesh.h
+	<include.h>
+	<Mesh.h>
+
+1406331490 source:/home/cedric/CodeBlocks-local/arelium/src/DisplayMesh.cpp
+	"DisplayMesh.h"
+
+1409763860 /home/cedric/CodeBlocks-local/arelium/include/FrameBuffer.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Texture.h>
+	<Color.h>
+
+1413289626 source:/home/cedric/CodeBlocks-local/arelium/src/FrameBuffer.cpp
+	"FrameBuffer.h"
+
+1406319810 source:/home/cedric/CodeBlocks-local/arelium/src/FirstPersonCamera.cpp
+	"FirstPersonCamera.h"
+
+1406242298 /home/cedric/CodeBlocks-local/arelium/include/FirstPersonCamera.h
+	<include.h>
+	<Camera.h>
+
+1409789888 source:/home/cedric/CodeBlocks-local/arelium/src/Light.cpp
+	"Light.h"
+
+1406333762 /home/cedric/CodeBlocks-local/arelium/include/Light.h
+	<include.h>
+	<FrameBuffer.h>
+	<Buffer.h>
+	<FirstPersonCamera.h>
+	<MirrorCube.h>
+
+1406331466 /home/cedric/CodeBlocks-local/arelium/include/BackgroundMap.h
+	<include.h>
+	<Mesh.h>
+
+1406331466 source:/home/cedric/CodeBlocks-local/arelium/src/BackgroundMap.cpp
+	"BackgroundMap.h"
+
+1404747592 /home/cedric/CodeBlocks-local/arelium/include/GLH.h
+	<include.h>
+	<gl_inc_hs.h>
+
+1404747526 source:/home/cedric/CodeBlocks-local/arelium/src/GLH.cpp
+	"GLH.h"
+
+1413289626 source:/home/cedric/CodeBlocks-local/arelium/src/MirrorCube.cpp
+	"MirrorCube.h"
+	"Buffer.h"
+
+1409764110 /home/cedric/CodeBlocks-local/arelium/include/MirrorCube.h
+	<include.h>
+	<Vector.h>
+	<Shader.h>
+	<FrameBuffer.h>
+	<FirstPersonCamera.h>
+
+1406558638 /home/cedric/CodeBlocks-local/arelium/include/App.h
+	<include.h>
+	<gl_inc_hs.h>
+	<Camera.h>
+	<Render.h>
+	<Keyboard.h>
+	<Mouse.h>
+	<AppController.h>
+
+1406557028 /home/cedric/CodeBlocks-local/arelium/include/AppController.h
+	<include.h>
+	<Keyboard.h>
+	<gl_inc_hs.h>
+
+1406557850 source:/home/cedric/CodeBlocks-local/arelium/src/AppController.cpp
+	"AppController.h"
+
+1413289626 source:/home/cedric/CodeBlocks-local/arelium/src/App.cpp
+	"App.h"
+
+1406572686 /home/cedric/CodeBlocks-local/arelium/include/ThreadHelper.h
+	<vector>
+	<thread>
+
+1406668444 source:/home/cedric/CodeBlocks-local/arelium/src/ThreadHelper.cpp
+	"ThreadHelper.h"
+
+1409573758 source:/home/cedric/CodeBlocks-local/arelium/src/CodePackage.cpp
+	"CodePackage.h"
+
+1409573734 /home/cedric/CodeBlocks-local/arelium/include/CodePackage.h
+	<string>
+

@@ -1,0 +1,17 @@
+#include <include.h>
+#ifndef MOUSE_H
+#define MOUSE_H
+
+
+class Mouse
+{
+    public:
+        Mouse();
+        virtual ~Mouse();
+        void move(int, int);
+        void button(int, int, int, int);
+    protected:
+    private:
+};
+
+#endif // MOUSE_H

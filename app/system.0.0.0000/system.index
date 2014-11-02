@@ -1,0 +1,10 @@
+App[id="org.official.system:0.0.0000";]
+{
+    name:"system";
+	title:"System";
+	description:"An app store, app starter (home screen), mutitasking handler and system management app";
+	version:"0.0:0000";
+	genre:"system";
+	index:"./system.conf";
+}
+

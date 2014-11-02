@@ -1,0 +1,14 @@
+<?aml version="1.0" namespace="GUI"?>
+<style src="frame"/>
+<Layered id="mainFrame">
+	<Canvas id="mainFrame"></Canvas>
+	<Border>
+		<Hbox class="top">
+			<t>some text</t>
+			<t>another text</t>
+		</Hbox>
+		<Hbox class="bottom">
+			<t>a footer</t>
+		</Hbox>
+	</Border>
+</Layered>

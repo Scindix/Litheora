@@ -1,0 +1,144 @@
+#include "Vector.h"
+
+Vector::Vector(float xx, float yy, float zz)
+{
+    x = xx;
+    y = yy;
+    z = zz;
+}
+
+Vector::~Vector()
+{
+    //dtor
+}
+
+float Vector::r()
+{
+    return sqrt(pow(x, 2.0) + pow(y, 2.0) + pow(z, 2.0));
+}
+
+float Vector::theta()
+{
+    return acos(z/sR());
+}
+
+float Vector::phi()
+{
+    return atan2(y, x);
+}
+
+
+float Vector::rho()
+{
+    return sqrt(pow(x, 2.0) + pow(y, 2.0));
+}
+
+
+void r(float f)
+{
+    x *= f/sR();
+    y *= f/sR();
+    z *= f/sR();
+}
+
+void theta(float f)
+{
+    x *= sin(f)/sin(sTheta());
+    y *= sin(f)/sin(sTheta());
+    z *= cos(f)/cos(sTheta());
+}
+
+void phi(float f)
+{
+    x *= sin(f)/sin(sPhi());
+    y *= cos(f)/cos(sPhi());
+}
+
+
+void rho(float f)
+{
+    x *= f/cRho();
+    y *= f/cRho();
+}
+
+inline Vector& operator+(Vector lhs, const Vector& rhs)
+{
+    lhs += rhs;
+    return lhs;
+}
+
+inline Vector& operator-(Vector lhs, const Vector& rhs)
+{
+    lhs += rhs;
+    return lhs;    
+}
+
+Vector& operator+=(const Vector& v)
+{
+    this->x += v.x;
+    this->y += v.y;
+    this->z += v.z;
+    return *this;
+}
+
+Vector& operator-=(const Vector&)
+{
+    this->x -= v.x;
+    this->y -= v.y;
+    this->z -= v.z;
+    return *this;
+}
+
+        
+inline Vector& operator*(float lhs, const float& rhs)
+{
+    lhs *= rhs;
+    return lhs; 
+}
+
+inline Vector& operator/(float lhs, const float& rhs)
+{
+    lhs /= rhs;
+    return lhs; 
+}
+
+Vector& operator*=(const float& f)
+{
+    this->x *= f;
+    this->y *= f;
+    this->z *= f;
+    return *this;
+}
+
+Vector& operator/=(const float& f)
+{
+    this->x /= f;
+    this->y /= f;
+    this->z /= f;
+    return *this;
+}
+
+        
+inline float& operator*(Vector lhs, const Vector& rhs)
+{
+    lhs /= rhs;
+    return lhs;
+}
+
+float& operator*=(const Vector& v)
+{
+    return this->x*v.x + this->y*v.y + this->z*v.z;
+    return *this;
+}
+
+inline Vector& operator|(Vector lhs, const Vector& rhs)
+{
+    lhs /= rhs;
+    return lhs;
+}
+
+Vector& operator|=(const Vector& v)
+{
+    
+    return *this;
+}

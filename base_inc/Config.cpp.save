@@ -1,0 +1,281 @@
+#include "Config.h"
+
+Config Config::root;
+//std::vector<Config> Config::files;
+
+Config::Config()
+{
+    //ctor
+}
+
+Config::~Config()
+{
+    //dtor
+}
+
+Config::Config(std::string s)
+{
+    parse(s);
+}
+
+void Config::save()
+{
+    std::string out("");
+    for(size_t j = 0; j < sections.size(); j++)
+    {
+        out += sections[j].name + S("[");
+        for(size_t k = 0; k < sections[j].param.size(); k++)
+        {
+            out += sections[j].param[k].name();
+            switch(sections[j].param[k].type())
+            {
+            case PropertyType::VOID:
+                break;
+            case PropertyType::DOUBLE:
+                out += S("=") + std::to_string(sections[j].param[k].valueDOUBLE()) + "; ";
+                break;
+            case PropertyType::INT:
+                out += S("=") + std::to_string(sections[j].param[k].valueINT()) + "; ";
+                break;
+            case PropertyType::STRING:
+                out += S("=\"") + sections[j].param[k].valueSTRING() + "\"; ";
+                break;
+            default:
+                out += S(";");
+            }
+        }
+        out += "]\n{";
+        for(size_t k = 0; k < sections[j].prop.size(); k++)
+        {
+            out += "\n\t";
+            out += sections[j].prop[k].name();
+            switch(sections[j].prop[k].type())
+            {
+            case PropertyType::VOID:
+                break;
+            case PropertyType::DOUBLE:
+                out += S("=") + std::to_string(sections[j].prop[k].valueDOUBLE());
+                break;
+            case PropertyType::INT:
+                out += S("=") + std::to_string(sections[j].prop[k].valueINT());
+                break;
+            case PropertyType::STRING:
+                out += S("=\"") + sections[j].prop[k].valueSTRING() + S("\"");
+                break;
+            default:
+                out += S(";");
+            }
+        }
+        out += "\n}\n";
+    }
+    for(size_t j = 0; j < subSections.size(); j++)
+    {
+        out += S("@include \"") + subSections[j].fname.substr((App.basePath + PATH_SLASH).size()) + "\";\n";
+        subSections[j].save();
+    }
+    File::Text outFile(fname);
+    outFile << out;
+}
+
+void Config::init(std::string base)
+{
+    std::string resultPath;
+    try
+    {
+        File::Folder f(App.executionPath);
+        std::string out("");
+        try
+        {
+            File::Text file;
+            f.up();
+            resultPath = f.path + PATH_SLASH + base;
+            file = resultPath;
+            file >> out;
+            App.basePath = f.path;
+        } catch(Exception e)
+        {
+            if(e == Error::TextFileReadError)
+            {
+                try
+                {
+                    File::Text file;
+                    f.up();
+                    resultPath = f.path + PATH_SLASH + base;
+                    file = resultPath;
+                    file >> out;
+                    App.basePath = f.path;
+                }
+                catch(Exception e)
+                {
+                    if(e == Error::TextFileReadError)
+                    {
+                        std::cout << e(S("Config file is missing: '") + resultPath + S("' or '") + f.up().path + PATH_SLASH + base + S("'"));
+                        exit(-1);
+                    }
+                    throw(e);
+                }
+            } else
+                throw(e);
+        }
+        root.parse(out);
+        root.fname = resultPath;
+        root.id = base.substr(0, base.find(".", base.rfind(PATH_SLASH)+1));
+    }
+    catch(Exception e)
+    {
+        std::cout << "TextFileReadError(" << (e == Error::TextFileReadError) << ")ref(" << true << ")\n";
+        std::cout << e(S("Problem in config file: '") + Console::FileAdress(base) + S("'"));
+        return;
+    }
+    catch(std::exception& e)
+    {
+        std::cout << Exception::errorString(e, "void Config::init(std::string base)");
+        return;
+    }
+}
+
+Config& Config::atSub(std::string needle)
+{
+    for(size_t i = 0; i < subSections.size(); i++)
+    {
+        if(subSections[i].id == needle)
+        {
+            return subSections[i];
+        }
+    }
+    throw(Error::ConfigAtSearchNotFound);
+}
+
+Config& Config::operator/ (std::string s)
+{
+    return atSub(s);
+}
+
+ConfigSection& Config::operator% (std::string s)
+{
+    return at(s);
+}
+
+ConfigSection& Config::at(std::string needle)
+{
+    return at(needle, *new std::vector<std::string>);
+}
+
+ConfigSection& Config::at(std::string needle, std::vector<std::string> pattern)
+{
+    if(pattern.size()%2 == 1)
+        throw(Error::ConfigAtSearchMod2);
+    for(size_t i = 0; i < sections.size(); i++)
+    {
+        if(sections[i].name == needle)
+        {
+            if(pattern.size()==0)
+                return sections[i];
+            for(size_t j = 0; j < pattern.size(); j+=2)
+            {
+                for(size_t k = 0; k < sections[i].param.size(); k++)
+                {
+                    if(sections[i].param[k].name() == pattern[j] && sections[i].param[k].valueSTRING() == pattern[j+1])
+                        return sections[i];
+                }
+            }
+        }
+    }
+    throw(Error::ConfigAtSearchNotFound);
+}
+
+void Config::parse(std::string s)
+{
+    size_t i = 0;
+    size_t lineNumber = 1;
+    while(true)
+    {
+        ConfigSection c;
+        try
+        {
+            size_t i_ = i;
+            while(s.substr(i_,1) == " " || s.substr(i_,1) == "\t" || s.substr(i_,1) == "\n")
+            {
+                if(s.substr(i_,1) == "\n")
+                    lineNumber++;
+                i_++;
+                if(i_+1 == s.size())
+                    break;
+            }
+            if(s.substr(i_,1) == "@")
+            {
+                if(s.substr(i_,8) == "@include")
+                {
+                    std::string argument("");
+                    size_t pos;
+                    i_+=8;
+                    while(s.substr(i_,1) == " " || s.substr(i_,1) == "\t" || s.substr(i_,1) == "\n")
+                    {
+                        if(s.substr(i_,1) == "\n")
+                            lineNumber++;
+                        i_++;
+                        if(i_+1 == s.size())
+                            throw(Error::ConfigIncludeUnclosed);
+                    }
+                    if(s.substr(i_,1) == "\"")
+                    {
+                        pos = s.find("\"", i_+1);
+                        if(pos == std::string::npos)
+                            throw(Error::ConfigWrongPreprocessorStringArgSyntax);
+                        argument = s.substr(i_+1, pos-i_-1);
+                    } else
+                    {
+                        throw(Error::ConfigWrongPreprocessorStringArgSyntax);
+                    }
+                    File::Text file;
+                    file = App.basePath + PATH_SLASH + argument;
+                    std::string out("");
+                    file >> out;
+                    Config _c(out);
+                    _c.id = argument.substr(0, argument.find(".", argument.rfind(PATH_SLASH)+1));
+                    _c.fname = App.basePath + PATH_SLASH + argument;
+
+                    subSections.push_back(_c);
+                    while(s.substr(i_,1) == " " || s.substr(i_,1) == "\t" || s.substr(i_,1) == "\n")
+                    {
+                        if(s.substr(i_,1) == "\n")
+                            lineNumber++;
+                        i_++;
+                        if(i_+1 == s.size())
+                            throw(Error::ConfigIncludeUnclosed);
+                    }
+                    i_ = pos+1;
+                    if(s.substr(i_,1) != ";")
+                        throw(Error::ConfigIncludeUnclosed);
+                    else
+                        i = i_+1;
+                } else
+                    throw(Error::ConfigUnknownPreprecessorDirective);
+            }
+
+            if(c.parse(&s, &i, &lineNumber))
+            {
+                sections.push_back(c);
+            }
+            else
+                break;
+        }
+        catch(Exception e)
+        {
+            std::vector<std::string> lines = StringHelper::explode(s, '\n');
+            std::cout << e(__S__("While parsing:\n\t '") + s.substr(0, 15) + __S__("[...]'\n\n\tIn Line ") + std::to_string(lineNumber) + __S__(": ") + ConsoleFormats::RedBack + ConsoleFormats::Bold + lines[lineNumber-1] + ConsoleFormats::Reset);
+            return;
+        }
+        catch(std::exception& e)
+        {
+            std::cout << Exception::errorString(e, "Config::parse(std::string s)");
+            return;
+        }
+    }
+}
+
+Config& Config::operator= (std::string s)
+{
+    parse(s);
+    return *this;
+}
