@@ -1,0 +1,4 @@
+Litheora
+========
+
+lightweight game engine
